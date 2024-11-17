@@ -1,0 +1,29 @@
+@import "variables";
+#slide {
+  
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    top: 0;
+    height: 100vh;
+  
+  .show-top & {
+    opacity: 0;
+  }
+  @media (min-width: @sm-screenPlus){
+
+    max-width: 80vw;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+  }
+}
+#cover {
+  position: relative;
+  z-index: 2;
+  @media (min-width: @sm-screenPlus){
+
+    max-width: 80vw;
+  }
+}
+

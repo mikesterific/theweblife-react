@@ -1,0 +1,168 @@
+@import "variables";
+* {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
+body {
+  margin: 0;
+  @media(min-width: @sm-screenPlus){
+      max-width: 80vw;
+      margin: 0 auto;
+      background-color: #000;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  &.std-bullet {
+    padding-left: 15px;
+    list-style-type: disc;
+    li {
+      padding: 5px 0;
+    }
+  }
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+p {
+  line-height: 140%;
+}
+
+.container {
+  padding: @site-padding;
+
+  @media (min-width: @mobilePlus) {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+  @media (min-width: @tabletPlus) {
+    padding-left: 20vw;
+    padding-right: 20vw;
+  }
+  @media (min-width: @sm-screenPlus) {
+    padding: 7vh 20vw;
+    margin: 0 auto;
+  }
+  @media (min-width: @md-screenPlus) {
+    padding-left: 25vw;
+    padding-right: 25vw;
+  }
+}
+.show-tablet {
+    display: none;
+  }
+  .show-sm-screen {
+    display: none;
+  }
+  .show-md-screen {
+    display: none;
+  }
+  .show-lg-screen {
+    display: none;
+  }
+@media (min-width: @mobilePlus) {
+  .show-mobile {
+    display: block;
+  }
+  .show-tablet {
+    display: block;
+  }
+  .show-sm-screen {
+    display: none;
+  }
+  .show-md-screen {
+    display: none;
+  }
+  .show-lg-screen {
+    display: none;
+  }
+}
+@media (min-width: @tabletPlus) {
+  .show-mobile {
+    display: block;
+  }
+  .show-tablet {
+    display: block;
+  }
+  .show-sm-screen {
+    display: block;
+  }
+  .show-md-screen {
+    display: none;
+  }
+  .show-lg-screen {
+    display: none;
+  }
+}
+@media (min-width: @sm-screenPlus) {
+  .show-mobile {
+    display: block;
+  }
+  .show-tablet {
+    display: block;
+  }
+  .show-sm-screen {
+    display: block;
+  }
+  .show-md-screen {
+    display: none;
+  }
+  .show-lg-screen {
+    display: none;
+  }
+}
+@media (min-width: @md-screenPlus) {
+  .show-mobile {
+    display: block;
+  }
+  .show-tablet {
+    display: block;
+  }
+  .show-sm-screen {
+    display: block;
+  }
+  .show-md-screen {
+    display: block;
+  }
+  .show-lg-screen {
+    display: none;
+  }
+}
+@media (min-width: @lg-screen) {
+  .show-mobile {
+    display: block;
+  }
+  .show-tablet {
+    display: block;
+  }
+  .show-sm-screen {
+    display: block;
+  }
+  .show-md-screen {
+    display: block;
+  }
+  .show-lg-screen {
+    display: block;
+  }
+}

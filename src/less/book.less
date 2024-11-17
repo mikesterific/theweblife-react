@@ -1,0 +1,71 @@
+@import "variables";
+.book-wrap {
+  background-color: @red;
+  position: relative;
+  color: white;
+  h2 {
+    z-index: 2;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  button {
+    .std-btn();
+    margin: 30px auto;
+    display: block;
+    &:before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 6px solid white;
+      display: inline-block;
+      display: inline-block;
+      margin-right: 5px;
+      .show-book-desc-section & {
+        transform: rotateZ(90deg);
+      }
+    }
+  }
+}
+.book-image-wrap {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+.racecar-background {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  height: 172.8px;
+  width: 100%;
+  fill: black;
+  opacity: 0.2;
+  z-index: 1;
+  transform: scaleX(-1);
+}
+.book-description-wrap {
+  border: 1px solid transparent;
+  border-radius: 3px;
+  overflow: hidden;
+  height: 0;
+  transition: opacity 0.75s;
+  p {
+    line-height: 1.5;
+    margin-bottom: 25px;
+  }
+  ul {
+    margin-bottom: 20px;
+  }
+  .show-book-desc-section & {
+    height: auto;
+    padding: @site-padding;
+    border-color: white;
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: @mobilePlus){
+  .book-image-wrap {
+    width: 60%;
+  }
+}

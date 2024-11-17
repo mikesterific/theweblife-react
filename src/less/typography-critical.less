@@ -1,0 +1,67 @@
+@import "variables";
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  font-stretch: 25% 151%;
+  src: url(https://fonts.gstatic.com/s/raleway/v18/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2)
+      format("woff2 supports variations"),
+    url(https://fonts.gstatic.com/s/raleway/v18/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2)
+      format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+body {
+  font-family: "Raleway", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  @media (min-width: @mobilePlus){
+    
+  }
+}
+a {
+  text-decoration: none;
+}
+p {
+  line-height: 140%;;
+}
+@media (min-width: @mobilePlus) and (max-width: @tablet){
+  body {
+    font-size: 2.5vw;
+  }
+  p {
+    line-height: 160%;
+    margin-bottom: 2vw;
+  }
+}
+@media (min-width: @tabletPlus) and (max-width: @sm-screen){
+  body {
+    font-size: 2.3vw;
+  }
+  p {
+    line-height: 160%;
+    margin-bottom: 2.5vw;
+  }
+}
+@media (min-width: @sm-screenPlus) and (max-width: @md-screen){
+  body {
+    font-size: 1.5vw;
+  }
+  p {
+    line-height: 160%;
+    margin-bottom: 2.5vw;
+  }
+}
+@media (min-width: @md-screenPlus){
+  body {
+    font-size: 1.3vw;
+  }
+  p {
+    line-height: 160%;
+    margin-bottom: 2.5vw;
+  }
+}
