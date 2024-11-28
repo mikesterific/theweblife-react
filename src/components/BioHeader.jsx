@@ -1,9 +1,9 @@
 // Import images
-import tigerCrop320 from '../images/tiger-crop-320.webp';
-import tigerCrop400 from '../images/tiger-crop-400.webp';
-import tigerFull300 from '../images/tiger-full-300.webp';
-import tigerFull400 from '../images/tiger-full-400.webp';
-import tigerFull663 from '../images/tiger-full-663.jpg';
+import tigerCrop320 from '@/assets/imgs/tiger-crop-320.webp';
+import tigerCrop400 from '@/assets/imgs/tiger-crop-400.webp';
+import tigerFull300 from '@/assets/imgs/tiger-full-300.webp';
+import tigerFull400 from '@/assets/imgs/tiger-full-400.webp';
+import tigerFull663 from '@/assets/imgs/tiger-full-663.jpg';
 
 const BioHeader = () => {
   return (

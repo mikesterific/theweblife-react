@@ -1,3 +1,9 @@
+import mug200 from '/imgs/mug-200.webp';
+import mug300 from '/imgs/mug-300.webp';
+import mug400 from '/imgs/mug-400.webp';
+import mug600 from '/imgs/mug-600.webp';
+import mugJpg from '/imgs/me-2x.jpg';
+
 const LargeBio = () => {
   return (
     <section className="large-bio-wrap container">
@@ -6,16 +12,16 @@ const LargeBio = () => {
         <picture className="lazy">
           <source
             type="image/webp"
-            srcSet="
-              imgs/mug-200.webp 200w,
-              imgs/mug-300.webp 300w,
-              imgs/mug-400.webp 400w,
-              imgs/mug-600.webp 600w
-            "
+            srcSet={`
+              ${mug200} 200w,
+              ${mug300} 300w,
+              ${mug400} 400w,
+              ${mug600} 600w
+            `}
             sizes="60vw"
           />
           <img
-            src="imgs/me-2x.jpg"
+            src={mugJpg}
             id="mug"
             alt="Mike Jones sports a fedora"
           />

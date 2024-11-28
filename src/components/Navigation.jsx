@@ -11,10 +11,10 @@ const Navigation = () => {
         <li className="show-mobile show-tablet">
           <a href="#performance">Performance</a>
         </li>
-        <li className="show-mobile"><a href="#author">Author</a></li>
-        <li className="show-mobile"><a href="/portfolio.html">Portfolio</a></li>
-        <li className="show-sm-screen"><a href="#story">My Story</a></li>
-        <li className="show-mobile"><a href="#contact">Contact</a></li>
+        <li className="show-mobile"><a href="/#author">Author</a></li>
+        <li className="show-mobile"><a href="/portfolio">Portfolio</a></li>
+        <li className="show-sm-screen"><a href="/#story">My Story</a></li>
+        <li className="show-mobile"><a href="/#contact">Contact</a></li>
       </ul>
     </nav>
   )

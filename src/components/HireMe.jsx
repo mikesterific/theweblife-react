@@ -1,5 +1,4 @@
-import TwitterIcon from '../images/twitter.svg'
-import LinkedInIcon from '../images/linkedin.svg'
+import EmailImg from '/imgs/email.svg';
 
 const HireMe = () => {
   return (
@@ -17,6 +16,7 @@ const HireMe = () => {
         </div>
         <div className="social-wrap">
           <div className="sItemWrap">
+          
             <a
               href="//twitter.com/Mikesterific"
               target="_blank"
@@ -24,19 +24,23 @@ const HireMe = () => {
               rel="noreferrer"
             >
               <span className="visually-hidden">Twitter</span>
-              <img src={TwitterIcon} alt="" className="logo twitter" />
+              <svg className="logo twitter">
+                <use href="#twitter" />
+              </svg>
             </a>
           </div>
           <div className="sItemWrap">
-            <a
+             <a
               href="//www.linkedin.com/in/michaelgarrettjones"
               target="_blank"
               className="social-link"
               rel="noreferrer"
             >
               <span className="visually-hidden">LinkedIn</span>
-              <img src={LinkedInIcon} alt="" className="logo linkedin" />
-            </a>
+              <svg className="logo linkedin">
+                <use href="#linkedin" />
+              </svg> 
+             </a> 
           </div>
         </div>
       </div>

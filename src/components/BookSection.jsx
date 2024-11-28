@@ -1,6 +1,6 @@
-import bookSmallWebp from '../images/book-265.webp';
-import bookMediumWebp from '../images/book-300.webp';
-import bookLargeJpg from '../images/book-493.jpg';
+import bookSmallWebp from '/imgs/book-265.webp';
+import bookMediumWebp from '/imgs/book-300.webp';
+import bookLargeJpg from '/imgs/book-493.jpg';
 
 const BookSection = ({ showBookDesc, setShowBookDesc }) => {
   return (
