@@ -1,22 +1,65 @@
+const navItems = [
+  {
+    label: 'Home',
+    href: '/',
+    className: 'show-mobile show-tablet nav-home-link',
+  },
+  {
+    label: 'Performance',
+    href: '/#performance',
+    className: 'show-mobile show-tablet',
+  },
+  {
+    label: 'Author',
+    href: '/#author',
+    className: 'show-mobile',
+  },
+  
+  {
+    label: 'Play Games',
+    href: '/#portfolio-quest',
+    className: 'show-mobile',
+  },
+  {
+    label: 'AI / LLM',
+    href: '/#ai-llm',
+    className: 'show-sm-screen',
+  },
+  {
+    label: 'My Story',
+    href: '/#story',
+    className: 'show-sm-screen',
+  },
+  {
+    label: 'Portfolio',
+    href: '/portfolio',
+    className: 'show-mobile',
+  },
+  {
+    label: 'Contact',
+    href: '/#contact',
+    className: 'show-mobile',
+  },
+]
+
 const Navigation = () => {
+  const handleNavigation = (href) => {
+    window.location.href = href
+  }
+
   return (
     <nav className="main-nav-wrap" role="navigation" aria-labelledby="main_site_navigation">
       <h2 className="visually-hidden" id="main_site_navigation">
         Main Site Navigation
       </h2>
       <ul>
-        <li className="show-mobile show-tablet nav-home-link">
-          <a href="/">Home</a>
-        </li>
-        <li className="show-mobile show-tablet">
-          <a href="/#performance">Performance</a>
-        </li>
-        <li className="show-mobile"><a href="/#author">Author</a></li>
-        <li className="show-mobile"><a href="/portfolio">Portfolio</a></li>
-        <li className="show-mobile"><a href="/#portfolio-quest">Quest</a></li>
-        <li className="show-sm-screen"><a href="/#story">My Story</a></li>
-        <li className="show-sm-screen"><a href="/#ai-llm">AI / LLM</a></li>
-        <li className="show-mobile"><a href="/#contact">Contact</a></li>
+        {navItems.map((item) => (
+          <li className={item.className} key={item.href}>
+            <button type="button" onClick={() => handleNavigation(item.href)}>
+              {item.label}
+            </button>
+          </li>
+        ))}
       </ul>
     </nav>
   )
