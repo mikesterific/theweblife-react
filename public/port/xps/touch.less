@@ -1,0 +1,150 @@
+@import "variables.less";
+
+.pd-touch-wrap {
+    padding: 250px 0;
+    background: rgb(236, 234, 234);
+    > .pd-section {
+        display: flex;
+        b {
+            color: @blue;
+        }
+        p {
+            font-size: 24px;
+        }
+    }
+    h2 {
+        font-size: 48px;
+        line-height: 120%;;
+    }
+}
+.pd-touch-image-wrap {
+    margin: 0 auto;
+    flex: 1 0 60%;
+}
+.pd-touch-image-viewport {
+    width: 700px;
+    position: relative;
+}
+.pd-touch-screen {
+    width: 580px;
+    height: 364px;
+    position: absolute;
+    top: 14px;
+    left: 58px;
+    overflow: hidden;
+    background: @black;
+}
+.pd-boats-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: none;
+    // transform: translate3d(524px,-249px,0);
+    transform-origin: bottom right;
+    opacity: .01;
+    transition: opacity .3s;
+    will-change: transform, opacity;
+}
+.pd-finger-touch {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255,255,255,.0);
+    border: 5px solid rgba(255,255,255,.9);
+    position: absolute;
+    opacity: .01;
+    right: 50px;
+    bottom: 20px;
+    z-index: 5;
+    transition: background-color .3s;
+    transform: translate3d(55px,-2px,0);
+    background-color: rgba(255,255,255,.9);
+    will-change: transform, background-color, opacity;
+
+
+}
+.pd-touch-anim {
+    animation: touchFinger 6s  ease-out 1;
+}
+.pd-touch-img-anim {
+    animation: touchPict 6s ease-out 1;
+}
+.pd-pos-41,
+.pd-pos-42,
+.pd-pos-43,
+.pd-pos-44,
+.pd-pos-45,
+.pd-pos-46,
+.pd-pos-47,
+.pd-pos-48,
+.pd-pos-49,
+.pd-pos-50
+{
+    .pd-finger-touch {
+        animation: touchFinger 3.8s  ease-out infinite;
+    }
+    .pd-boats-img {
+        animation: touchPict 3.8s ease-out infinite;
+        opacity: 1;
+        transform: translate3d(524px,-249px,0);
+    }
+}
+   
+
+@keyframes touchPict {
+    0% {
+      
+        transform: translate3d(0, 0, 0);
+    }
+    10% {
+        transform: translate3d(0, 0, 0);
+    }
+    40% {
+        transform: translate3d(0,-249px,0);
+    }
+    60% {
+        transform: translate3d(0,-249px,0);
+    }
+    
+    100% {
+        transform: translate3d(524px,-249px,0);
+
+    }
+  }
+  @keyframes touchFinger {
+    0% {
+      
+        
+        background-color: rgba(255,255,255,.1);
+        transform: translate3d(-110px,-113px,0);
+        opacity: 1;
+    }
+    10% {
+        transform: translate3d(0, 0, 0);
+        background-color: rgba(255,255,255,.8);
+        opacity: 1;
+    }
+    40% {
+        transform: translate3d(0,-249px,0);
+        background-color: rgba(255,255,255,.8);
+        opacity: 1;
+
+    }
+    59% {
+        transform: translate3d(-470px,-2px,0);
+        background-color: rgba(255,255,255,.1);
+        opacity: 1;
+    }
+    60% {
+        transform: translate3d(-470px,-2px,0);
+        background-color: rgba(255,255,255,.8);
+        opacity: 1;
+    }
+    
+    100% {
+        transform: translate3d(45px,-2px,0);
+        background-color: rgba(255,255,255,.8);
+        opacity: 1;
+
+    }
+  }

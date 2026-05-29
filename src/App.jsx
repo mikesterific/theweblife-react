@@ -5,9 +5,11 @@ import BioHeader from './components/BioHeader'
 import BriefBio from './components/BriefBio'
 import BookSection from './components/BookSection'
 import LargeBio from './components/LargeBio'
+import PortfolioQuestSection from './components/PortfolioQuestSection'
 import WhoHiredMe from './components/WhoHiredMe'
 import HireMe from './components/HireMe'
 import PortfolioList from './components/PortfolioList'
+import XPSPage from './components/XPSPage'
 import './less/style.less'
 function App() {
   const [showTop, setShowTop] = useState(false)
@@ -41,6 +43,7 @@ function App() {
             <div id="cover">
               <BriefBio />
               <BookSection showBookDesc={showBookDesc} setShowBookDesc={setShowBookDesc} />
+              <PortfolioQuestSection />
               <LargeBio />
               <WhoHiredMe />
               <HireMe />
@@ -55,6 +58,7 @@ function App() {
             </div>
           </div>
           } />
+        <Route path="/port/xps" element={<XPSPage />} />
       </Routes>
     </Router>
   )

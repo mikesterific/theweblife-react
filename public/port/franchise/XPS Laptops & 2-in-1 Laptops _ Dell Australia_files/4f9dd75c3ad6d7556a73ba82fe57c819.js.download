@@ -1,0 +1,1 @@
+Marketing.bindDependencyDOMParsed(function(){var Bootstrapper=window["Marketing"];var ensightenOptions=Marketing.ensightenOptions;try{if(Marketing.UDO.promoid=="4"){window._aaq=window._aaq||(window._aaq=[]);Marketing.insertScript("//cdn.evgnet.com/beacon/dell/delloutletsingapore/scripts/evergage.min.js")}}catch(e){dell_marketing_util.debug(e)}},3272582,[3253911],646462,[610323]);

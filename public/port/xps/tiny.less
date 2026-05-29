@@ -1,0 +1,90 @@
+@import "variables.less";
+
+.pd-tiny-wrap {
+    padding: 100px 0;
+
+    .pd-container {
+        display: block;
+        text-align: center;
+        position: relative;
+
+        >h3 {
+            font-size: 40px;
+            text-align: center;
+        }
+    }
+    
+    img {
+        transform: scale(1) translateY(0);
+        transition: all .5s;
+    }
+    .pd-details-wrap {
+        text-align: left;
+    }
+    
+}
+// .pd-pos-61,
+// .pd-pos-62,
+// .pd-pos-63,
+// .pd-pos-64,
+// .pd-pos-65,
+// .pd-pos-66,
+// .pd-pos-67,
+// .pd-pos-68,
+// .pd-pos-69,
+// .pd-pos-70,
+// .pd-pos-71
+//     {
+//     .pd-tiny-wrap img {
+//         transform: scale(1) translateY(0);
+
+//     }
+// }
+.pd-pos-56,
+.pd-pos-57,
+.pd-pos-58,
+.pd-pos-59,
+.pd-pos-60,
+.pd-pos-61,
+.pd-pos-62,
+.pd-pos-63,
+.pd-pos-64,
+.pd-pos-65,
+.pd-pos-66,
+.pd-pos-67 {
+    .pd-tiny-wrap img {
+        transform: scale(.3) translateY(-363px);
+    }
+}
+.pd-pos-68 {
+    .pd-tiny-wrap img {
+        transform: scale(.5) translateY(-200px);
+    }
+}
+.pd-pos-69 {
+    .pd-tiny-wrap img {
+        transform: scale(.8) translateY(-53px);
+    }
+}
+// .pd-pos-62 {
+//     .pd-tiny-wrap img {
+//         transform: scale(.9);
+//     }
+// }
+.pd-dimension-list {
+    z-index: 5;
+    top: 206px;
+    left: 235px;
+    text-align: left;
+    font-size: 16px;
+    opacity: 1;
+    transition: opacity .5s;
+    >div > span b:first-child {
+        font-size: 16px;
+    }
+}
+.pd-pos-63,.pd-pos-64,.pd-pos-65,.pd-pos-66, .pd-pos-67, .pd-pos-68, .pd-pos-69  {
+    .pd-dimension-list {
+        opacity: .01;
+    }
+}

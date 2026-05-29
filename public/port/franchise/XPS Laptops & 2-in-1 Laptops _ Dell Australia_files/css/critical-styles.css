@@ -1,0 +1,726 @@
+.cf-dell-text {
+  color: #00447c;
+}
+a.cfsf-btn,
+button.cfsf-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 3px;
+  color: #00447c;
+  border: 2px solid #00447c;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  background: white;
+}
+a.cfsf-btn:visited,
+button.cfsf-btn:visited {
+  color: #00447c;
+}
+a.cfsf-btn-shop,
+button.cfsf-btn-shop {
+  background-color: #00447c;
+  color: white;
+}
+a.cfsf-btn-shop:visited,
+button.cfsf-btn-shop:visited {
+  color: white;
+}
+.cfsf-circe-btn-wrap {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.cfsf-circe-btn-wrap button {
+  border-radius: 50%;
+  height: 46px;
+  width: 46px;
+  padding: 10px;
+  color: black;
+  -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+          box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  background: white;
+  border: 0;
+  position: relative;
+}
+.cfsf-circe-btn-wrap button > span {
+  position: relative;
+  z-index: 2;
+}
+.cfsf-circe-btn-wrap button:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+          box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+[show-message] [target] {
+  display: none;
+}
+.buttonSelected {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  color: white;
+  -webkit-transition: -webkit-transform 0.7s ease;
+  transition: -webkit-transform 0.7s ease;
+  transition: transform 0.7s ease;
+  transition: transform 0.7s ease, -webkit-transform 0.7s ease;
+}
+.buttonSelected:before {
+  background: #111;
+}
+[show-message="1"] .cfsf-circe-btn-wrap button[select-message="1"] {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  color: white;
+  -webkit-transition: -webkit-transform 0.7s ease;
+  transition: -webkit-transform 0.7s ease;
+  transition: transform 0.7s ease;
+  transition: transform 0.7s ease, -webkit-transform 0.7s ease;
+}
+[show-message="1"] .cfsf-circe-btn-wrap button[select-message="1"]:before {
+  background: #111;
+}
+[show-message="1"] [target="1"] {
+  display: block;
+}
+[show-message="2"] .cfsf-circe-btn-wrap button[select-message="2"] {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  color: white;
+  -webkit-transition: -webkit-transform 0.7s ease;
+  transition: -webkit-transform 0.7s ease;
+  transition: transform 0.7s ease;
+  transition: transform 0.7s ease, -webkit-transform 0.7s ease;
+}
+[show-message="2"] .cfsf-circe-btn-wrap button[select-message="2"]:before {
+  background: #111;
+}
+[show-message="2"] [target="2"] {
+  display: block;
+}
+[show-message="3"] .cfsf-circe-btn-wrap button[select-message="3"] {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  color: white;
+  -webkit-transition: -webkit-transform 0.7s ease;
+  transition: -webkit-transform 0.7s ease;
+  transition: transform 0.7s ease;
+  transition: transform 0.7s ease, -webkit-transform 0.7s ease;
+}
+[show-message="3"] .cfsf-circe-btn-wrap button[select-message="3"]:before {
+  background: #111;
+}
+[show-message="3"] [target="3"] {
+  display: block;
+}
+@media all and (min-width: 780px) {
+  a.cfsf-btn,
+  button.cfsf-btn {
+    width: auto;
+    padding: 12px 16px;
+    min-width: 150px;
+  }
+}
+
+.cf-dell-text {
+  color: #00447c;
+}
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+@-moz-document url-prefix() {
+  html {
+    scroll-behavior: auto;
+  }
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('//uicore.dellcdn.com/0.2.7/fonts/Roboto-Light-v2.137.eot');
+  src: url('//uicore.dellcdn.com/0.2.7/fonts/Roboto-Light-v2.137.eot?#iefix') format('embedded-opentype'), url('//uicore.dellcdn.com/0.2.7/fonts/Roboto-Light-v2.137.woff2') format('woff2'), url('//uicore.dellcdn.com/0.2.7/fonts/Roboto-Light-v2.137.woff') format('woff'), url('//uicore.dellcdn.com/0.2.7/fonts/Roboto-Light-v2.137.ttf') format('truetype'), url('//uicore.dellcdn.com/0.2.7/fonts/Roboto-Light-v2.137.svg#svgroboto-light') format('svg');
+}
+@font-face {
+  font-family: 'roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('//uicore.dellcdn.com/0.2.7/fonts/Roboto-Light-v2.137.eot');
+  src: url('//uicore.dellcdn.com/0.2.7/fonts/Roboto-Light-v2.137.eot?#iefix') format('embedded-opentype'), url('//uicore.dellcdn.com/0.2.7/fonts/Roboto-Light-v2.137.woff2') format('woff2'), url('//uicore.dellcdn.com/0.2.7/fonts/Roboto-Light-v2.137.woff') format('woff'), url('//uicore.dellcdn.com/0.2.7/fonts/Roboto-Light-v2.137.ttf') format('truetype'), url('//uicore.dellcdn.com/0.2.7/fonts/Roboto-Light-v2.137.svg#svgroboto-light') format('svg');
+}
+img {
+  max-width: 100%;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  margin: 0;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 300;
+}
+b,
+strong {
+  font-weight: bold;
+}
+.cfsf-visually-hidden {
+  position: absolute;
+  left: -9999em;
+  height: 0;
+  overflow: hidden;
+}
+.cfsf-page-main {
+  position: absolute;
+  top: 66px;
+  overflow: auto;
+  overflow-x: hidden;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  scroll-behavior: smooth;
+}
+a {
+  color: #006bbd;
+  text-decoration: none;
+}
+a:visited {
+  color: #006bbd;
+}
+button {
+  cursor: pointer;
+}
+.cfsf-sticky-nav {
+  display: none;
+}
+.cfsf-mouse-used button:focus {
+  outline: none;
+}
+@media all and (min-width: 780px) {
+  body {
+    overflow-x: hidden;
+    background-color: #f9f9f9;
+  }
+  .cfsf-page-main {
+    position: relative;
+    top: 0;
+    overflow: visible;
+  }
+}
+
+.cf-dell-text {
+  color: #00447c;
+}
+footer[component=footer] .ft-legal-links-wrap {
+  background: #444;
+}
+footer[component=footer] .ft-birdseed-wrap {
+  background: #444;
+  border-top: 1px solid #444;
+}
+footer[component=footer] .ft-legal-links-wrap .mh-container > li {
+  border-bottom: 1px solid #444;
+}
+
+.cf-dell-text {
+  color: #00447c;
+}
+.cfsf-hero-wrap {
+  padding: 10px 30px;
+  min-height: calc(100vh - 66px);
+  position: relative;
+  z-index: 5;
+  background: #f9f9f9;
+  overflow: hidden;
+}
+.cfsf-hero-wrap > * {
+  position: relative;
+  z-index: 2;
+}
+.cfsf-hero-wrap:before {
+  content: "";
+  border-radius: 50%;
+  background: #f1f1f1;
+  position: absolute;
+  top: 26%;
+  left: -50%;
+  width: 332vw;
+  height: 100vw;
+  z-index: 0;
+}
+.cfsf-hero-wrap:after {
+  content: "";
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f3f3f3;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f1f1f1), to(#f9f9f9));
+  background: linear-gradient(to bottom, #f1f1f1 0%, #f9f9f9 100%);
+  z-index: 1;
+}
+.cfsf-hero-wrap p,
+.cfsf-hero-wrap h2 {
+  text-align: center;
+}
+.cfsf-hero-wrap h2 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 0;
+}
+.cfsf-hero-wrap p {
+  line-height: 150%;
+}
+.cfsf-hero-wrap .cfsf-btn:not(.cfsf-btn-shop) {
+  margin-bottom: 15px;
+  background-color: #00447c;
+  color: #fff;
+}
+.cfsf-hero-wrap .cfsf-btn:not(.cfsf-btn-shop):hover {
+  background-color: transparent;
+  color: #00447c;
+}
+.cfsf-h-message-wrap h2,
+.cfsf-h-message-wrap p {
+  color: #222;
+}
+.cfsf-h-message-wrap .cfsf-btn-shop {
+  margin: 20px 0;
+  background-color: transparent;
+  color: #00447c;
+}
+.cfsf-h-message-wrap .cfsf-btn-shop:visited {
+  color: #00447c;
+}
+.cfsf-h-message-wrap .cfsf-btn-shop:hover {
+  background-color: #00447c;
+  color: #fff;
+}
+.cfsf-hero-row-one,
+.cfsf-hero-row-three,
+.cfsf-breadcrumbs,
+.cfsf-h-agreement {
+  display: none;
+}
+.cfsf-mobile-breadrumb-wrap {
+  margin-bottom: 2rem;
+}
+.cfsf-mobile-breadrumb-wrap > nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.cfsf-mobile-breadrumb-wrap > nav > span:first-child {
+  width: 12px;
+  display: block;
+  padding-right: 5px;
+  padding-top: 4px;
+}
+.cfsf-mobile-breadrumb-wrap a {
+  color: #444;
+}
+.cfsf-mobile-breadrumb-wrap a:visited {
+  color: #444;
+}
+.cfsf-hero-row-two .cfsf-h-logo-img-wrap {
+  display: block;
+  text-align: center;
+}
+.cfsf-hero-row-two img {
+  margin-top: 20px;
+}
+.cfsf-h-product-img-wrap {
+  text-align: center;
+}
+@media all and (min-width: 768px) {
+  .cfsf-hero-row-three,
+  .cfsf-breadcrumbs,
+  .cfsf-h-agreement {
+    display: block;
+  }
+  .cfsf-hero-row-three {
+    display: none;
+  }
+  .cfsf-hero-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-top: 66px;
+  }
+  .cfsf-mobile-breadrumb-wrap {
+    display: none;
+  }
+  .cfsf-breadcrumbs {
+    display: block;
+    text-align: center;
+  }
+  .cfsf-breadcrumbs > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    padding-top: 10px;
+    margin: 0 auto;
+  }
+  .cfsf-breadcrumbs > ul > li:after {
+    content: ' ';
+    background: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjBweCIgeT0iMHB4IiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB3aWR0aD0iMTcuMyIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDE3LjMgMzIiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE3LjMgMzIiPjxzdHlsZT4uc3R5bGUwe2ZpbGw6ICM3Nzc3Nzc7fTwvc3R5bGU+PHBhdGggZD0iTTE2LjksMTUuMUwyLjMsMC40Yy0wLjUtMC41LTEuNC0wLjUtMS45LDBzLTAuNSwxLjQsMCwxLjlMMTQuMSwxNkwwLjQsMjkuN2MtMC41LDAuNS0wLjUsMS40LDAsMS45czEuNCwwLjUsMS45LDAgbDE0LjctMTQuN0MxNy41LDE2LjQsMTcuNSwxNS42LDE2LjksMTUuMUwxNi45LDE1LjF6IiBjbGFzcz0ic3R5bGUwIi8+PC9zdmc+) no-repeat;
+    background-size: 5px 10px;
+    width: 5px;
+    height: 10px;
+    display: inline-block;
+    margin: 0 10px;
+  }
+  .cfsf-breadcrumbs > ul > li:last-child > a {
+    font-weight: bold;
+  }
+  .cfsf-breadcrumbs > ul > li:last-child:after {
+    display: none;
+  }
+  .cfsf-breadcrumbs > ul > li:first-child a {
+    background: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjBweCIgeT0iMHB4IiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzIgMzIiPjxzdHlsZT4uc3R5bGUwe2ZpbGw6ICM3Nzc3Nzc7fTwvc3R5bGU+PHBhdGggZD0iTTMwLjgyMSAxNy43NDZsLTMuMS0zLjMyMnYtMC4wNTVoLTAuMDUxbC0xMS42NjctMTIuNDk5LTExLjY3MSAxMi40OTloLTAuMDcwdjAuMDc1bC0zLjA4MyAzLjMwMiAxLjM3NiAxLjI4NCAxLjcwNS0xLjgyOHYxMi45MjhoOC45OTR2LTEwLjQ4OGg1LjQ2OHYxMC40ODhoOC45OTR2LTEyLjk0N2wxLjcyNCAxLjg0NyAxLjM4LTEuMjg0ek0yNS44MzggMjguMjQ4aC01LjIyOXYtMTAuNDg4aC05LjIzM3YxMC40ODhoLTUuMjMxdi0xMy4wNjRsOS44NTgtMTAuNTU2IDkuODM3IDEwLjUzOXYxMy4wODB6IiBjbGFzcz0ic3R5bGUwIi8+PC9zdmc+) no-repeat;
+    background-size: 15px 15px;
+    padding-left: 25px;
+  }
+  .cfsf-breadcrumbs > ul > li a {
+    font-size: 12px;
+    color: #222;
+  }
+  .cfsf-hero-row-two {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .cfsf-hero-row-two .cfsf-h-logo-img-wrap {
+    display: none;
+  }
+  .cfsf-h-agreement-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .cfsf-h-agreement {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .cfsf-agreement-img-wrap {
+    width: 100px;
+  }
+  .cfsf-h-message-wrap {
+    margin-top: 0;
+    padding-right: 30px;
+    text-align: center;
+  }
+  .cfsf-h-message-wrap h2,
+  .cfsf-h-message-wrap p {
+    text-align: center;
+  }
+  .cfsf-h-message-wrap > h2 {
+    font-size: 56px;
+    margin: 30px 0;
+  }
+  .cfsf-h-message-wrap > p {
+    font-size: 16px;
+  }
+  .cfsf-h-message-wrap .cfsf-btn {
+    display: none;
+  }
+  .cfsf-h-message-wrap .cfsf-btn-shop {
+    display: inline-block;
+    width: auto;
+    color: #00447c;
+  }
+  .cfsf-h-message-wrap .cfsf-btn-shop:hover {
+    color: #fff;
+  }
+  .cfsf-btn {
+    margin-top: 2vh;
+    width: auto;
+    display: inline-block;
+  }
+}
+@media all and (min-width: 980px) {
+  .cfsf-hero-wrap {
+    padding: 0 90px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cfsf-hero-wrap:after {
+    height: 46%;
+    top: 54%;
+  }
+  .cfsf-hero-wrap .cfsf-btn:not(.cfsf-btn-shop) {
+    background-color: transparent;
+    color: #00447c;
+  }
+  .cfsf-hero-wrap .cfsf-btn:not(.cfsf-btn-shop):hover {
+    background-color: #00447c;
+    color: #fff;
+  }
+  .cfsf-hero-row-one {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+            flex: 0 0 20%;
+    min-height: calc(20vh - 66px);
+  }
+  .cfsf-hero-row-two {
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -ms-flex-preferred-size: calc(75vh - 66px);
+        flex-basis: calc(75vh - 66px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .cfsf-hero-row-two .cfsf-h-logo-img-wrap {
+    display: none;
+  }
+  .cfsf-hero-row-two img {
+    margin-top: 0;
+  }
+  .cfsf-h-message-wrap {
+    text-align: left;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .cfsf-h-message-wrap h2,
+  .cfsf-h-message-wrap p {
+    text-align: left;
+  }
+  .cfsf-hero-row-three {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 66px;
+  }
+  .cfsf-hero-row-three {
+    display: block;
+    text-align: center;
+  }
+  .cfsf-hero-row-three img {
+    width: 30px;
+  }
+  .cfsf-breadcrumbs > ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .cfsf-h-product-img-wrap {
+    width: 50%;
+  }
+}
+
+.cf-dell-text {
+  color: #00447c;
+}
+header[component=masthead] .mh-tier2,
+header[component=masthead] .mh-tier3,
+header[component=masthead] .mh-tier4 {
+  background: #f9f9f9;
+}
+header[component=masthead] .mh-tier2 .mh-nav-hover,
+header[component=masthead] .mh-tier3 .mh-nav-hover,
+header[component=masthead] .mh-tier4 .mh-nav-hover {
+  background-color: #f9f9f9;
+}
+header[component=masthead]#dell-masthead {
+  width: 100%;
+  background-color: #f9f9f9;
+  z-index: 901;
+}
+header[component=masthead]#dell-masthead .mh-top-wrap.mh-container {
+  width: auto;
+}
+header[component=masthead]#dell-masthead .mh-site-nav-wrap.mh-container {
+  width: auto;
+  padding-left: 66px;
+  margin-top: -17px;
+}
+header[component=masthead]#dell-masthead .mh-site-nav-wrap a {
+  color: #444;
+}
+header[component=masthead]#dell-masthead a.mh-has-children {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Layer_1' x='0px' y='0px' viewBox='0 0 17.3 32' enable-background='new 0 0 100 100' xml:space='preserve' height='100px' width='100px'%3E%3Cg%3E%3Cpath style='fill:rgb(68,68,68)' d='M16.9,15.1L2.3,0.4c-0.5-0.5-1.4-0.5-1.9,0s-0.5,1.4,0,1.9L14.1,16L0.4,29.7c-0.5,0.5-0.5,1.4,0,1.9s1.4,0.5,1.9,0 l14.7-14.7C17.5,16.4,17.5,15.6,16.9,15.1L16.9,15.1z'/%3E%3C/g%3E%3C/svg%3E");
+}
+header[component=masthead]#dell-masthead .mh-mobile-search-label {
+  color: #444;
+}
+header[component=masthead]#dell-masthead .mh-ct-icon-wrap svg {
+  position: relative;
+  top: 1px;
+}
+header[component=masthead]#dell-masthead .mh-si-button {
+  color: #444;
+  cursor: pointer;
+}
+@media only screen and (min-width: 767px) {
+  header[component=masthead]#dell-masthead .mh-si-button > span:last-child {
+    position: relative;
+    top: -1px;
+  }
+}
+header[component=masthead]#dell-masthead .mh-mobile-navigation a {
+  color: #444;
+}
+header[component=masthead]#dell-masthead .mh-mobile-search-button-wrap {
+  height: 65px;
+}
+header[component=masthead]#dell-masthead .mh-tw-hamburger-wrap {
+  height: 66px;
+}
+header[component=masthead]#dell-masthead #mh-top-countrytoggle {
+  margin-top: -1px;
+}
+header[component=masthead]#dell-masthead .mh-tw-home-wrap.mh-hover-behavior path {
+  fill: #00447c;
+}
+header[component=masthead]#dell-masthead .mh-hover-behavior {
+  color: #444;
+}
+header[component=masthead]#dell-masthead .mh-tw-hamburger-button-wrap button {
+  color: #444;
+}
+header[component=masthead]#dell-masthead .mh-hover-behavior svg path,
+header[component=masthead]#dell-masthead .mh-hamburger-icon,
+header[component=masthead]#dell-masthead .mh-si-icon {
+  fill: #444;
+}
+header[component=masthead]#dell-masthead .mh-si-button:hover .mh-si-icon {
+  fill: #444;
+}
+header[component=masthead]#dell-masthead .my-acct-menu-behavior .mh-si-button .mh-si-icon,
+header[component=masthead]#dell-masthead .my-acct-menu-behavior .mh-si-icon,
+header[component=masthead]#dell-masthead .mh-show-ma-dropdown .mh-si-button .mh-si-icon,
+header[component=masthead]#dell-masthead .mh-show-ma-dropdown .mh-si-icon {
+  fill: #444;
+}
+header[component=masthead]#dell-masthead .my-acct-menu-behavior .mh-si-button:hover .mh-si-icon,
+header[component=masthead]#dell-masthead .my-acct-menu-behavior .mh-si-icon,
+header[component=masthead]#dell-masthead .mh-show-ma-dropdown .mh-si-button:hover .mh-si-icon,
+header[component=masthead]#dell-masthead .mh-show-ma-dropdown .mh-si-icon {
+  fill: #444;
+}
+@media screen and (min-width: 1400px) {
+  header[component=masthead]#dell-masthead .mh-tw-search-wrap {
+    max-width: 600px;
+  }
+}
+header[component=masthead]#dell-masthead .mh-search-btn {
+  background: #444;
+  border: 0;
+}
+header[component=masthead]#dell-masthead .mh-search-btn .mh-search-button-label {
+  color: #f9f9f9;
+}
+header[component=masthead]#dell-masthead .mh-search-input {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+header[component=masthead]#dell-masthead .mh-shadow-line-blue {
+  border-top-color: #444;
+  display: none;
+}
+header[component=masthead]#dell-masthead .mh-list-item-2-trigger {
+  color: #444;
+}
+header[component=masthead]#dell-masthead .mh-site-nav-wrap {
+  background: none;
+}
+header[component=masthead]#dell-masthead .mh-top-wrap.mh-container {
+  height: auto;
+}
+.cfsf-masthead-section {
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.cfsf-animation-one .cfsf-masthead-section {
+  opacity: 0;
+}
+@media all and (min-width: 780px) {
+  .cfsf-masthead-section {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .cfsf-animation-one .cfsf-masthead-section {
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=../maps/critical-styles.css.map */

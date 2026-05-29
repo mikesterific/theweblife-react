@@ -1,7 +1,8 @@
 const PortfolioItem = ({
   title,
-  wideScrset,
-  scrset,
+  wideSrcset,
+  srcset,
+  wideImg,
   img,
   alt,
   hrefMobile,
@@ -15,25 +16,29 @@ const PortfolioItem = ({
       <h2>{title}</h2>
       <div className="p-img-wrap">
         <picture>
-          <source media="(min-width: 1024px)" srcset={wideScrset} />
-          <source media="(max-width: 1023px)" srcset={scrset} />
-          <img src={img} loading="lazy" alt={alt} />
+          <source media="(min-width: 1024px)" srcset={wideSrcset} />
+          <source media="(max-width: 1023px)" srcset={srcset} />
+          <img src={wideImg || img} loading="lazy" alt={alt} />
         </picture>
       </div>
       <p className="pa-btn-wrap">
-        <a className="mobile-btn" target="_blank" href={hrefMobile}>
-          {buttonLabel}
-        </a>
-        <a className="desktop-btn" href={hrefDesktop}>
-          {buttonLabel}
-        </a>
+        {hrefMobile && hrefDesktop && (
+          <>
+            <a className="mobile-btn" target="_blank" href={hrefMobile}>
+              {buttonLabel}
+            </a>
+            <a className="desktop-btn" target="_blank" href={hrefDesktop}>
+              {buttonLabel}
+            </a>
+          </>
+        )}
       </p>
       <div className="p-a-col-wrap">{paragraphs}</div>
       <div className="pa-roles-wrap">
         <h3>Roles:</h3>
         <ul>
           {roles.map((role, index) => (
-            <li key={index}>{role}</li>
+            <li key={index} className={role}>{role}</li>
           ))}
         </ul>
       </div>

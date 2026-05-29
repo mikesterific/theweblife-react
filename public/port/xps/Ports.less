@@ -1,0 +1,72 @@
+@import "variables.less";
+
+.pd-ports-wrap {
+    padding: 200px 0;
+    background: white;
+
+    >.pd-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+    }
+
+
+}
+
+.pd-port-list, .pd-dimension-list {
+    position: absolute;
+    width: 400px;
+
+    h3 {
+        font-size: 41px;
+    }
+
+    >div {
+        width: 50%;
+        display: flex;
+        padding: 0 10px;
+        margin-bottom: 20px;
+
+        >span {
+            display: block;
+        }
+
+        span:first-child {
+            border-radius: 50%;
+            background: rgb(143, 142, 142);
+            color: white;
+            width: 30px;
+            height: 30px;
+            display: block;
+            min-width: 30px;
+            text-align: center;
+            margin-right: 15px;
+            line-height: 30px;
+
+        }
+
+        span:last-child {
+            min-width: 400px;
+            > b {
+                color: @blue;
+                font-size: 22px;
+            }
+        }
+    }
+
+    
+}
+.pd-port-graphic-wrap {
+    position: relative;
+}
+
+.pd-pw-left-wrap {
+    top: 134px;
+    left: 71px;
+}
+
+.pd-pw-right-wrap {
+    top: 265px;
+    right: 17px;
+}

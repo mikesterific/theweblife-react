@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://cdnssl.clicktale.net/www/tc/crossdomain.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta name="robots" content="noindex">
+</head>
+
+<body>
+    <script type="text/javascript">
+        (function() {
+
+            try {
+
+                function readCookie(name) {
+                    var nameEQ = name + "=";
+                    var ca = document.cookie.split(';');
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                    }
+                    return null;
+                };
+
+                function receiveMessage(event) {
+                    if (event.origin !== event.data.origin) {
+                        return;
+                    }
+                    if (event.data) {
+
+                        var cookieName = "ClicktaleUID";
+
+                        if (event.data.cookie) {
+                            cookieName = event.data.cookie;
+                        }
+
+                        if (event.data.uid) {
+                            var expiryDate = new Date(Date.now() + 3600 * 1000 * 24 * 30).toUTCString();
+                            document.cookie = cookieName + "=" + event.data.uid + "; expires=" + expiryDate + ";domain=." + window.location.host + ";path=/;SameSite=None;Secure;";
+                        }
+
+                        var getClicktaleUID = readCookie(cookieName);
+
+                        if (getClicktaleUID && getClicktaleUID != "1") {
+                            parent.postMessage(getClicktaleUID, "*");
+                        } else {
+                            parent.postMessage("NoUID", "*");
+                        }
+                    }
+                }
+                window.addEventListener("message", receiveMessage, false);
+
+            } catch (err) {
+                parent.postMessage("Try catch error - " + err, "*");
+            }
+
+        })();
+    </script>
+
+
+
+</body></html>

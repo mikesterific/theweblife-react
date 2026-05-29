@@ -1,0 +1,121 @@
+@import "variables.less";
+.pd-ready-wrap {
+    background: @black;
+    // padding: 200px 0;
+    .pd-container {
+        display: block;
+        width: 100%;
+        justify-content: center;;
+    }
+}
+.pd-r-graphic-wrap {
+    // width: 965px; 
+    position: relative;
+}
+.pd-ready-title {
+    font-size: 40px;
+    color: @black;
+    text-align: left;
+    margin: 20px 0 60px;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    margin: 0;
+    padding: 20px;
+    background-color: @black;
+    color: white;
+    z-index: 10;
+}
+.pd-r-img-wrap {
+    position: relative;
+    overflow: hidden;
+    //border-radius: 10px;
+    //border: 5px solid darken(#FFF, 20);
+    img {
+        // width: 1170px;
+        width: 100%;
+        opacity: .01;
+        transition: opacity .5s;
+    }
+    > div {
+        position: absolute;
+        width: 50%;
+        background-color: rgba(0,0,0,.7);
+        color: white;
+        padding: 20px;
+        opacity: .01;
+        transition: all .5s;
+        h4 {
+            color: lighten(@lightBlue, 20);
+            font-size: 30px;
+            margin: 0;
+        }
+        p {
+            line-height: 180%;
+            font-size: 18px;;
+        }
+    }
+}
+.pd-r-start {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    background-color: rgba(0,0,0,.7);
+    opacity: .01;
+    transform: translateY(-100%);
+    transition: all .5s;
+}
+.pd-r-password {
+    left: 0;
+    bottom: -150px;
+}
+// .section3({
+//     .pd-r-img-wrap {
+//         position: relative;
+//         > div {
+//             opacity: .01;
+
+//         }
+//     }
+// });
+.section5({
+    .pd-r-img-wrap {
+        > div {
+            opacity: 1;
+        }
+        img {
+            opacity: 1;
+
+        }
+    }
+    .pd-r-start {
+        //top: 0;
+    }
+    .pd-r-password {
+        transform: translateY(-100%);
+    }
+});
+
+    .pd-pos-39,
+    .pd-pos-40,
+    .pd-pos-41,
+    .pd-pos-42,
+    .pd-pos-43,
+    .pd-pos-44,
+    .pd-pos-45 {
+        .pd-r-start {
+            position: fixed;
+            top: 50px;
+            transform: translateY(0);
+        }
+    }
+    .pd-pos-43,
+    .pd-pos-44,
+    .pd-pos-45,
+    .pd-pos-46,
+    .pd-pos-47 {
+        .pd-r-img-wrap .pd-r-start {
+            opacity: .01;
+        }
+    }

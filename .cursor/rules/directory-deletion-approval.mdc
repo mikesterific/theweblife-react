@@ -1,0 +1,19 @@
+---
+description: Require explicit user approval before deleting directories
+alwaysApply: true
+---
+
+# Directory Deletion Approval
+
+Never delete a directory without explicit user approval in the current conversation.
+
+This applies to any action that removes a directory or its contents, including:
+
+- `rm -rf <directory>`
+- `rmdir <directory>`
+- delete tool calls pointed at directories
+- scripts or commands whose purpose is to remove, clean, prune, or replace a directory
+
+Before deleting a directory, stop and ask the user for approval. Name the exact directory path and why deletion is needed.
+
+Deleting individual files is not covered by this rule, but be careful when a file operation could cascade into directory removal.
