@@ -30,10 +30,10 @@ const LargeBio = () => {
       <p>I've worn many hats over my career (besides the fedora)</p>
       <div className="bb-skills-wrap">
         <ul>
+          <li>AI / LLM Product Engineer</li>
           <li>Performance Expert</li>
           <li>Enterprise Architect</li>
           <li>User Advocate</li>
-          <li>Full-stack Designer</li>
         </ul>
       </div>
       <p>
@@ -50,6 +50,11 @@ const LargeBio = () => {
         So I started a long journey to get that control back in the web
         medium. The browsers and I have had some disagreements over the years,
         but that's mostly passed these days.
+      </p>
+      <p>
+        These days I'm bringing that same product-minded engineering approach
+        to AI and LLM work: practical RAG systems, agentic workflows,
+        conversational interfaces, and developer tools that make teams faster.
       </p>
       <p>
         So 20 years later, I've had the pleasure to work with some of the

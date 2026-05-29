@@ -5,6 +5,7 @@ import BioHeader from './components/BioHeader'
 import BriefBio from './components/BriefBio'
 import BookSection from './components/BookSection'
 import LargeBio from './components/LargeBio'
+import AILLMSkillsSection from './components/AILLMSkillsSection'
 import PortfolioQuestSection from './components/PortfolioQuestSection'
 import WhoHiredMe from './components/WhoHiredMe'
 import HireMe from './components/HireMe'
@@ -44,6 +45,7 @@ function App() {
               <BriefBio />
               <BookSection showBookDesc={showBookDesc} setShowBookDesc={setShowBookDesc} />
               <PortfolioQuestSection />
+              <AILLMSkillsSection />
               <LargeBio />
               <WhoHiredMe />
               <HireMe />

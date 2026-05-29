@@ -13,7 +13,7 @@ const BioHeader = () => {
           <span>Hi, I'm</span> <span>Michael</span> <span>Garrett</span>
           <span>Jones</span>
         </h1>
-        <p>Avid tiger hugger and web pro.</p>
+        <p>AI / LLM product engineer, front-end architect, and avid tiger hugger.</p>
       </div>
       <div className="bh-img-wrap">
         <picture>
