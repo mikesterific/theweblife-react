@@ -78,7 +78,14 @@ const PortfolioQuestSection = () => {
 
         <div className="pq-card-grid" aria-label="Choose an experience">
           {questLinks.map((link) => (
-            <a className={`pq-card pq-card-${link.accent}`} href="/portfolio-quest">
+            <button
+              key={link.title}
+              className={`pq-card pq-card-${link.accent}`}
+              type="button"
+              onClick={() => {
+                window.location.href = link.href
+              }}
+            >
               <div className="pq-card-header">
                 <span className="pq-card-orb" aria-hidden="true"></span>
                 <span className="pq-card-eyebrow">{link.eyebrow}</span>
@@ -94,7 +101,7 @@ const PortfolioQuestSection = () => {
                 {link.cta}
                 <span aria-hidden="true">→</span>
               </span>
-            </a>
+            </button>
           ))}
         </div>
 
