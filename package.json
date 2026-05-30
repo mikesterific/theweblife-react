@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently \"node server.js\" \"vite\"",
-    "build": "vite build && cp -r public/port dist/",
+    "build": "vite build && cp -r public/port dist/ && cp -r portfolio dist/",
     "serve": "node server.js",
     "preview": "vite preview"
   },

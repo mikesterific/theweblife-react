@@ -11,8 +11,12 @@ const app = express();
 // Serve static files from the public directory
 app.use(express.static('public'));
 
+app.get('/portfolio.html', (req, res) => {
+  res.redirect(301, '/portfolio');
+});
+
 // Serve the client-side application build
-app.use('/app', express.static('dist'));
+app.use(express.static('dist'));
 
 // Handle all portfolio routes
 app.get('/port/:project', (req, res) => {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import BioHeader from './components/BioHeader'
 import BriefBio from './components/BriefBio'
@@ -60,6 +60,7 @@ function App() {
             </div>
           </div>
           } />
+        <Route path="/portfolio.html" element={<Navigate to="/portfolio" replace />} />
         <Route path="/port/xps" element={<XPSPage />} />
       </Routes>
     </Router>
