@@ -1,17 +1,17 @@
 @import "variables";
 
 .large-bio-wrap {
-    --bio-surface-start: #0e2f45;
-    --bio-surface-mid: #164f63;
-    --bio-surface-end: #10345c;
+    --bio-surface-start: #0f2742;
+    --bio-surface-mid: #1d5f86;
+    --bio-surface-end: #3b7793;
     --bio-text: #fff;
-    --bio-muted: #d9eef6;
-    --bio-accent: #8ff3d4;
+    --bio-muted: #eaf7fd;
+    --bio-accent: #bfe9ff;
 
     background:
-        radial-gradient(circle at 16% 12%, rgba(143, 243, 212, .2), transparent 19rem),
-        radial-gradient(circle at 88% 28%, rgba(229, 240, 245, .18), transparent 20rem),
-        linear-gradient(145deg, var(--bio-surface-start) 0%, var(--bio-surface-mid) 52%, var(--bio-surface-end) 100%);
+        radial-gradient(circle at 18% 16%, rgba(191, 233, 255, .34), transparent 18rem),
+        radial-gradient(circle at 84% 14%, rgba(216, 236, 247, .26), transparent 22rem),
+        linear-gradient(145deg, var(--bio-surface-start) 0%, var(--bio-surface-mid) 58%, var(--bio-surface-end) 100%);
     color: var(--bio-text);
     font-weight: 400;
 
@@ -19,7 +19,12 @@
         color: var(--bio-muted);
     }
 
+    .lb-img-wrap + p {
+        text-align: center;
+    }
+
     h2 {
+        color: var(--bio-text);
         margin-bottom: 20px;
     }
     
@@ -28,6 +33,27 @@
         padding: 5px;
         font-weight: 600;
     }
+
+    &.container {
+        @media (min-width: @mobilePlus) {
+            padding-left: 8vw;
+            padding-right: 8vw;
+        }
+
+        @media (min-width: @tabletPlus) {
+            padding-left: 12vw;
+            padding-right: 12vw;
+        }
+
+        @media (min-width: @sm-screenPlus) {
+            padding: 7vh 12vw;
+        }
+
+        @media (min-width: @md-screenPlus) {
+            padding-left: 14vw;
+            padding-right: 14vw;
+        }
+    }
 }
 
 .bb-skills-wrap {
@@ -35,13 +61,15 @@
 
     ul {
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
+        align-items: center;
         justify-content: center;
         gap: 8px;
     }
 
     li {
-        border: 1px solid rgba(143, 243, 212, .32);
+        border: 1px solid rgba(191, 233, 255, .38);
         border-radius: 999px;
         background: rgba(255, 255, 255, .08);
         color: var(--bio-text);
@@ -53,8 +81,8 @@
     padding-bottom: 20px;
 
     img {
-        border: 2px solid rgba(143, 243, 212, .74);
-        box-shadow: 0 18px 42px rgba(0, 0, 0, .24);
-        width: 60%;
+        border: 2px solid rgba(191, 233, 255, .82);
+        box-shadow: 0 18px 42px rgba(8, 31, 51, .24);
+        width: min(48%, 320px);
     }
 }
