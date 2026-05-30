@@ -1,0 +1,56 @@
+@import "variables";
+
+.hp-h-category-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px @sides;
+    transition: all .3s;
+    background: white;
+    transform: translateZ(0);
+    border-bottom: 1px solid #ccc;
+
+    .responsive(@screen-sm, {
+            display: none;
+        }
+
+    );
+
+    h2 {
+        margin: 0;
+        white-space: nowrap;
+        font-size: 2vw;
+    }
+
+    >div,
+    >a {
+        flex: 1;
+        height: 4.7vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        >div {
+            font-size: 1.15vw;
+
+        }
+    }
+
+    .hp-cat-sticky & {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        box-shadow: 0 3px 3px rgba(0, 0, 0, .3);
+    }
+}
+
+.hp-cat-spacer {
+    height: 0;
+    overflow: hidden;
+}
+
+.hp-cat-sticky .hp-cat-spacer {
+    height: 96px;
+}

@@ -1,0 +1,158 @@
+@import "variables.less";
+
+.pdm-masterful-wrap {
+    color: @grey;
+    position: relative;
+
+
+
+    
+    .pd-details-wrap {
+        p {
+            font-size: 6.5vw;
+            color: @grey;
+            opacity: .5;
+            line-height: 140%;
+            letter-spacing: .02rem;
+            transition: opacity .5s;
+        }
+
+        >.pd-dw-item {}
+    }
+}
+
+.pd-dw-item {
+    position: relative;
+    overflow: hidden;
+    &:before {
+        .blue-topper();
+        
+    }
+    h3,
+    h4 {
+        font-size: 10vw;
+        line-height: 120%;
+        color: lighten(@blue, 30);
+        margin-top: 0;
+        margin-bottom: 40px;
+        opacity: .5;
+        transition: opacity .5s;
+    }
+
+    &.pdm-activate-img {
+        &:before {
+            opacity: .9;
+            transform: translateY(-50%) scale(1.1);
+        }
+        h4 {
+            opacity: 1;
+        }
+    }
+
+    padding: 5vh 0;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: .5;
+        transition: all 1s;
+
+    }
+
+    &.pdm-activate-img {
+        img {
+            opacity: 1;
+            transform: scale(1.5);
+
+        }
+
+        p {
+            opacity: 1;
+        }
+
+        .pdm-img-wrap {
+            border-radius: 4px;
+
+        }
+
+        &.pd-superior {
+            img {
+                transform: scale(1.2);
+
+            }
+        }
+
+        &.pd-elevated {
+            img {
+                transform: scale(1.1);
+
+            }
+        }
+    }
+}
+
+.pdm-img-wrap {
+    width: 100%;
+    padding-top: 62.5%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, .2);
+
+}
+
+.pd-precision {
+    padding: 50px 0;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: .5;
+        transition: all 1s;
+
+    }
+
+    &.pdm-activate-img {
+        img {
+            opacity: 1;
+            transform: scale(1.5);
+
+        }
+    }
+}
+
+
+.pdm-masterful-image {
+    min-width: 236%;
+    transform: translateX(-54%);
+
+    .pd-pos-7 &,
+    .pd-pos-8 &,
+    .pd-pos-9 &,
+    .pd-pos-10 &,
+    .pd-pos-11 & {
+        transform: translateX(-4%);
+    }
+
+    .pd-pos-12 &,
+    .pd-pos-13 &,
+    .pd-pos-14 &,
+    .pd-pos-15 & {
+        transform: translateX(-54%);
+        animation: moveAcross 2s 1 ease-out;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes moveAcross {
+    0% {
+
+        transform: translateX(-4%);
+    }
+
+    100% {
+        transform: translateX(-54%);
+    }
+}

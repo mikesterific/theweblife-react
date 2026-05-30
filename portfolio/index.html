@@ -23,7 +23,7 @@
 *{box-sizing:border-box}img{max-width:100%}body{margin:0}@media (min-width:1025px){body{max-width:80vw;margin:0 auto;background-color:#000}}html{scroll-behavior:smooth}.visually-hidden{clip:rect(0 0 0 0);-webkit-clip-path:inset(50%);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}ul{padding:0;margin:0;list-style-type:none}ul.std-bullet{padding-left:15px;list-style-type:disc}ul.std-bullet li{padding:5px 0}h1,h2,h3,h4,p{margin-top:0;margin-bottom:10px}p{line-height:140%}.container{padding:20px}@media (min-width:481px){.container{padding-left:10vw;padding-right:10vw}}@media (min-width:769px){.container{padding-left:20vw;padding-right:20vw}}@media (min-width:1025px){.container{padding:7vh 20vw;margin:0 auto}}@media (min-width:1201px){.container{padding-left:25vw;padding-right:25vw}}.show-lg-screen,.show-md-screen,.show-sm-screen,.show-tablet{display:none}@media (min-width:481px){.show-mobile,.show-tablet{display:block}.show-lg-screen,.show-md-screen,.show-sm-screen{display:none}}@media (min-width:769px){.show-mobile,.show-sm-screen,.show-tablet{display:block}.show-lg-screen,.show-md-screen{display:none}}@media (min-width:1025px){.show-mobile,.show-sm-screen,.show-tablet{display:block}.show-lg-screen,.show-md-screen{display:none}}@media (min-width:1201px){.show-md-screen,.show-mobile,.show-sm-screen,.show-tablet{display:block}.show-lg-screen{display:none}}@media (min-width:1201px){.show-lg-screen,.show-md-screen,.show-mobile,.show-sm-screen,.show-tablet{display:block}}
 .hire-me-wrap,.port-body .hire-me-wrap{background-color:#e5f0f5;padding-bottom:75px;color:#444}.hire-me-wrap h2,.port-body .hire-me-wrap h2{background-color:#2c6cbf;text-align:center;padding:10px;color:#fff;border:2px solid #fff;margin-bottom:20px}.hire-me-wrap .btn-contact-me,.port-body .hire-me-wrap .btn-contact-me{text-align:center;padding:5px 10px;border:2px solid #2c6cbf;border-radius:5px;background-color:#2c6cbf;color:#fff;text-decoration:none;font-weight:600;font-size:1.2rem;width:auto}.hire-me-wrap .btn-contact-me:after,.port-body .hire-me-wrap .btn-contact-me:after{content:"";background:url(/imgs/email.svg) no-repeat;background-size:contain;width:50px;height:20px;display:inline-block;position:relative;left:10px;top:3px}.hire-me-wrap .chat-wrap,.port-body .hire-me-wrap .chat-wrap{text-align:center;padding:20px 0}.hire-me-wrap .social-wrap,.port-body .hire-me-wrap .social-wrap{display:flex;justify-content:space-around}.hire-me-wrap .social-wrap>div,.port-body .hire-me-wrap .social-wrap>div{flex:0 1 25%;max-width:100px}.hire-me-wrap .social-wrap>div svg,.port-body .hire-me-wrap .social-wrap>div svg{max-width:100%;fill:#2c6cbf}
 .who-hired-me{width:100%}.logo-wrap>div{padding:10px;text-align:center}.logo{display:block;margin-bottom:10px;position:relative}.microsoft{width:208px;height:45px;margin:0 auto 20px}.ea{height:52px;margin-right:20px}.citi,.ea{width:113px;display:inline-block}.citi{height:72px}.artandlogic{width:280px;height:43px;margin:20px auto}.bcbs{height:59px;width:113px;top:-20px}.bcbs,.dell{display:inline-block}.dell{width:114px;height:112px;margin-right:20px}.acuvue{width:224px;height:42px;margin:0 auto}
-.main-nav-wrap{background-color:#2c6cbf;padding:20px;border-bottom:1px solid rgba(255,255,225,.4)}.main-nav-wrap ul{display:flex;justify-content:space-between}@media (min-width:1025px){.main-nav-wrap ul{margin:0 4vw}}@media (min-width:1201px){.main-nav-wrap ul{margin:0 6vw;margin:0 8vw}}.main-nav-wrap ul li{min-height:20px}.main-nav-wrap a{border-radius:3px;padding:3px 10px;background-color:transparent;font-size:1rem;border:1px solid #fff;color:#fff;font-weight:500;letter-spacing:.005rem;text-shadow:1px 1px 1px rgba(0,0,0,.2)}.nav-home-link{display:none}.show-home .nav-home-link{display:block}
+.main-nav-wrap{background-color:#2c6cbf;position:sticky;top:0;padding:20px;border-bottom:1px solid rgba(255,255,225,.4);z-index:100}.main-nav-wrap ul{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 12px}@media (min-width:1025px){.main-nav-wrap ul{justify-content:space-between;margin:0 4vw}}@media (min-width:1201px){.main-nav-wrap ul{margin:0 8vw}}.main-nav-wrap ul li{min-height:20px}.main-nav-wrap button{border-radius:3px;padding:3px 10px;background-color:transparent;font-size:1rem;border:1px solid #fff;color:#fff;cursor:pointer;font-weight:500;letter-spacing:.005rem;text-shadow:1px 1px 1px rgba(0,0,0,.2)}.nav-home-link{display:none}.show-home .nav-home-link{display:block}
 body,html{height:100%;position:relative}.move-wrap{position:fixed;z-index:1000;bottom:0;right:0;left:0;height:0}.move-to-top-wrap{position:absolute;left:50%;transition:transform .5s ease;transform:translateY(100%) translateX(-50%);text-align:center;background-color:#000;border-top-left-radius:50%;border-top-right-radius:50%;color:#fff;padding-top:20px;bottom:0;height:60px;display:block;width:70px;font-weight:700;text-decoration:none;border:5px solid #2c6cbf;border-bottom:0;box-shadow:0 5px 15px rgba(0,0,0,.9)}.show-top .move-to-top-wrap{transform:translateY(0) translateX(-50%)}#top{height:100vh}</style>
 </head>
 <body class="port-body">
@@ -35,17 +35,31 @@ body,html{height:100%;position:relative}.move-wrap{position:fixed;z-index:1000;b
   <h2 class="visually-hidden" id="main_site_navigation">
     Main Site Navigation
   </h2>
-  <ul class=show-home>
+  <ul class="show-home">
     <li class="show-mobile show-tablet nav-home-link">
-        <a href="/">Home</a>
-      </li>
-    <li class="show-mobile show-tablet">
-      <a href="#performance">Performance</a>
+      <button type="button" data-href="/">Home</button>
     </li>
-    <li class="show-mobile"><a href="/#author">Author</a></li>
-    <li class="show-mobile"><a href="/portfolio">Portfolio</a></li>
-    <li class="show-sm-screen"><a href="/#story">My Story</a></li>
-    <li class="show-mobile"><a href="/#contact">Contact</a></li>
+    <li class="show-mobile show-tablet">
+      <button type="button" data-href="/#performance">Performance</button>
+    </li>
+    <li class="show-mobile">
+      <button type="button" data-href="/#author">Author</button>
+    </li>
+    <li class="show-mobile">
+      <button type="button" data-href="/#portfolio-quest">Play Games</button>
+    </li>
+    <li class="show-sm-screen">
+      <button type="button" data-href="/#ai-llm">AI / LLM</button>
+    </li>
+    <li class="show-sm-screen">
+      <button type="button" data-href="/#story">My Story</button>
+    </li>
+    <li class="show-mobile">
+      <button type="button" data-href="/portfolio">Portfolio</button>
+    </li>
+    <li class="show-mobile">
+      <button type="button" data-href="/#contact">Contact</button>
+    </li>
   </ul>
 </nav>
 
@@ -1205,7 +1219,17 @@ body,html{height:100%;position:relative}.move-wrap{position:fixed;z-index:1000;b
       </div>
     </div>
   </section>
-    <script>var vars = {
+    <script>
+(function () {
+  var buttons = document.querySelectorAll('.main-nav-wrap button[data-href]');
+
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function () {
+      window.location.href = this.getAttribute('data-href');
+    });
+  }
+})();
+var vars = {
   mobileWidth: 600
 };
 var clicks = function () {

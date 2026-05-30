@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://universal-preprod.iperceptions.com/iFrame.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script>
+        storageManage = function (e) {
+            try {
+                var payload = JSON.parse(e.data);
+                switch (payload.method) {
+                    case 'set':
+                        if (payload.data) {
+                            localStorage.setItem(payload.key, payload.data);
+							var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+                            if (isSafari) {
+                                sc(payload.key, payload.data, 90);
+                            }
+                        }
+                        break;
+                    case 'setsession':
+                        if (payload.data) {
+                            sessionStorage.setItem(payload.key, payload.data);
+                        }
+                        break;
+                    case 'get':
+                        var parent = window.parent;
+                        var data = localStorage.getItem(payload.key);
+                        if (!data) {
+                            data = rc(payload.key);
+                        }
+                        var result = {
+                            source: 'universal',
+                            value: data
+                        };
+                        parent.postMessage(JSON.stringify(result), "*");
+                        break;
+                    case 'getsession':
+                        var parent = window.parent;
+                        var data = sessionStorage.getItem(payload.key);
+                        var result = {
+                            source: 'universalgetsession',
+                            value: data
+                        };
+                        parent.postMessage(JSON.stringify(result), "*");
+                        break;
+                    case 'getsessionMob':
+                        var parent = window.parent;
+                        var data = sessionStorage.getItem(payload.key);
+                        var result = {
+                            source: 'universalgetsessionMob',
+                            value: data
+                        };
+                        parent.postMessage(JSON.stringify(result), "*");
+                        break;
+                    case 'getfeedbacksession':
+                        var parent = window.parent;
+                        var data = sessionStorage.getItem(payload.key);
+                        var result = {
+                            source: 'feedback',
+                            value: data
+                        };
+                        parent.postMessage(JSON.stringify(result), "*");
+                        break;
+                    case 'getharvestflag':
+                        var parent = window.parent;
+                        var data = sessionStorage.getItem(payload.key);
+                        var result = {
+                            source: 'feedbackgetharvestflag',
+                            value: data
+                        };
+                        parent.postMessage(JSON.stringify(result), "*");
+                        break;
+                    case 'remove':
+                        localStorage.removeItem(payload.key);
+                        break;
+                    case 'removesession':
+                        sessionStorage.removeItem(payload.key);
+                        break;
+                }
+            } catch (e) { }
+        };
+        rc = function (name) {
+            var value = "; " + document.cookie;
+            var parts = value.split("; " + name + "=");
+            if (parts.length == 2) return parts.pop().split(";").shift();
+            return null;
+        };
+        sc = function (name, value, days, sameSite) {
+            if (typeof sameSite === "undefined") sameSite = "None;Secure";
+            var d = '';
+            if (days) {
+                var e = new Date();
+                e.setTime(e.getTime() + days * 24 * 60 * 60 * 1000);
+                d = ';expires=' + e.toGMTString();
+            }
+            var dm = document.domain;
+            document.cookie = name + '=' + value + d + ';path=/;SameSite='+sameSite+';domain=' + dm + ';';
+        };
+        if (window.addEventListener) {
+            window.addEventListener('message', storageManage);
+        } else {
+            document.attachEvent('onmessage', storageManage);
+        }
+    </script>
+</head>
+<body>
+
+</body></html>

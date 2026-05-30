@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28" height="28" viewBox="0 0 28 28">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-screen-size);
+      }
+    </style>
+    <clipPath id="clip-screen-size">
+      <rect width="28" height="28"/>
+    </clipPath>
+  </defs>
+  <g id="screen-size" class="cls-1">
+    <g id="组_790" data-name="组 790" transform="translate(-0.381 -0.08)">
+      <path id="路径_1466" data-name="路径 1466" d="M27.879,20.66V6.179H3.736V20.66H1.807l.722,4.892H29.085l.722-4.892H27.88ZM5.593,8.036H26.021V20.661H5.593V8.036ZM27.481,23.7H4.131l-.175-1.179h23.7L27.481,23.7Z" transform="translate(-1.426 -2.099)"/>
+      <path id="路径_1467" data-name="路径 1467" d="M11.805,11.441l0-1.859-4.657.013.013,4.816,1.859,0,0-1.552,2.783,2.758L13.1,14.292l-2.871-2.844Z" transform="translate(-1.5 -2.147)"/>
+      <path id="路径_1468" data-name="路径 1468" d="M24.773,14.438l-1.859,0,0,1.554-2.785-2.758L18.826,14.56,21.7,17.4l-1.572,0,0,1.859,4.659-.013Z" transform="translate(-1.665 -2.2)"/>
+    </g>
+  </g>
+</svg>

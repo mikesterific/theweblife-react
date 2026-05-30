@@ -1,0 +1,110 @@
+@import "variables.less";
+.pd-eco-wrap {
+    background: #EFEFEF;
+    padding: 100px 0;
+    .pd-container {
+        display:block;
+        position: relative;
+        h3 {
+            font-size: 40px;
+            margin: 16px 0;
+        }
+        h4 {
+            font-size: 24px;
+        }
+        > img {
+            width: 100%;
+        }
+        > p {
+            font-size: 18px;
+            width: 50%;
+        }
+    }
+}
+.pd-blue-btn{
+    border-radius: 5px;
+    border: 0;
+    padding: 8px 10px;
+    background: #007db8;
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    &:visited {
+        color: #fff;
+    }
+}
+@keyframes fadeInOut {
+    0% {
+        opacity: .01;
+        //   transform: scale(1.2);
+    }
+
+    50% {
+        opacity: 1;
+        //   transform: scale(1);
+    }
+    100% {
+        opacity: .01;
+        //   transform: scale(1);
+    }
+}
+.pd-link-map-wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom:100px;
+    top: 8px;
+    a {
+        
+        width: 50px;
+        height: 50px;
+        display: block;
+        position: absolute;
+        opacity: .01;
+        transition: opacity .3s;
+        
+        background: rgba(0,0,0,.2);
+        &:hover {
+            background: rgba(0,0,0,.2);
+            opacity: 1;
+        }
+    }
+    & .pd-sleeve-link {
+        top: 182px;
+    left: 107px;
+    transform: rotate(66deg);
+    height: 279px;
+    width: 165px;
+    }
+    & .pd-monitor-link {
+        top: 128px;
+        left: 395px;
+        height: 204px;
+        width: 581px;
+        // transform: skew(18deg, 0deg);
+    }
+    & .pd-keyboard-link {
+        top: 364px;
+    left: 507px;
+    height: 103px;
+    width: 333px;
+    }
+    & .pd-mouse-link {
+        top: 368px;
+    left: 881px;
+    height: 93px;
+    width: 58px;
+    }
+    & .pd-adapter-link {
+        top: 384px;
+    left: 1002px;
+    height: 65px;
+    width: 97px;
+    }
+    & .pd-power-link {
+        top: 462px;
+    left: 1020px;
+    height: 338px;
+    width: 109px;
+    }
+}
