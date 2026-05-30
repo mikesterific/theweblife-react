@@ -27,7 +27,7 @@ p {
 }
 @media (min-width: 481px) and (max-width: 768px) {
   body {
-    font-size: 2.5vw;
+    font-size: 1rem;
   }
   p {
     line-height: 160%;
@@ -36,7 +36,7 @@ p {
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   body {
-    font-size: 2.3vw;
+    font-size: 1.05rem;
   }
   p {
     line-height: 160%;
@@ -45,7 +45,7 @@ p {
 }
 @media (min-width: 1025px) and (max-width: 1200px) {
   body {
-    font-size: 1.5vw;
+    font-size: 1rem;
   }
   p {
     line-height: 160%;
@@ -54,7 +54,7 @@ p {
 }
 @media (min-width: 1201px) {
   body {
-    font-size: 1.3vw;
+    font-size: 1rem;
   }
   p {
     line-height: 160%;
@@ -173,11 +173,11 @@ p {
   color: #fff;
 }
 .port-body h1 {
-  font-size: 10vw;
+  font-size: clamp(3rem, 10cqw, 7rem);
 }
 @media (min-width: 1024px) {
   .port-body h1 {
-    font-size: 7vw;
+    font-size: clamp(3.5rem, 8cqw, 7rem);
   }
 }
 .port-body h1 + p {
@@ -245,7 +245,11 @@ p {
   line-height: 140%;
 }
 .container {
+  container-type: inline-size;
   padding: 20px;
+}
+.container :where(p, li) {
+  font-size: clamp(1rem, 2.6cqw, 1.2rem);
 }
 @media (min-width: 481px) {
   .container {
