@@ -4,6 +4,7 @@ import tigerCrop400 from '/imgs/tiger-crop-400.webp';
 import tigerFull300 from '/imgs/tiger-full-300.webp';
 import tigerFull400 from '/imgs/tiger-full-400.webp';
 import tigerFull663 from '/imgs/tiger-full-663.jpg';
+import { track } from '../utils/track';
 
 const BioHeader = () => {
   return (
@@ -13,7 +14,19 @@ const BioHeader = () => {
           <span>Hi, I'm</span> <span>Michael</span> <span>Garrett</span>
           <span>Jones</span>
         </h1>
-        <p>AI / LLM product engineer, front-end architect, and avid tiger hugger.</p>
+        <p>AI engineer, front-end architect, and avid tiger hugger.</p>
+        <div className="bh-cta-wrap">
+          <a
+            className="bh-cta-primary"
+            href="/portfolio"
+            onClick={() => track('cta_click', 'hero')}
+          >
+            Check out my portfolio
+          </a>
+          <a className="bh-cta-secondary" href="/#contact">
+            Get in touch
+          </a>
+        </div>
       </div>
       <div className="bh-img-wrap">
         <picture>

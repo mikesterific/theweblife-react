@@ -30,7 +30,7 @@ const LargeBio = () => {
       <p>I've worn many hats over my career (besides the fedora)</p>
       <div className="bb-skills-wrap">
         <ul>
-          <li>AI / LLM Product Engineer</li>
+          <li>AI Engineer</li>
           <li>Performance Expert</li>
           <li>Enterprise Architect</li>
           <li>User Advocate</li>

@@ -64,6 +64,34 @@
   .chat-wrap {
       text-align: center;
       padding: 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+  }
+
+  .btn-view-portfolio {
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    padding: 9px 16px;
+    border: 2px solid rgba(255, 255, 255, .78);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--contact-text);
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: background-color .2s ease;
+
+    &, &:hover, &:focus, &:visited {
+      text-decoration: none;
+      color: var(--contact-text);
+    }
+
+    &:hover, &:focus {
+      background: rgba(255, 255, 255, .14);
+    }
   }
 
   .social-wrap {

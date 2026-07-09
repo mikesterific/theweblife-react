@@ -16,3 +16,6 @@ Thumbs.db
 # Build outputs
 /build
 /dist
+
+# Self-hosted analytics logs
+/analytics

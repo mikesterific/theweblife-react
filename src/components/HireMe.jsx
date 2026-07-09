@@ -1,4 +1,5 @@
 import EmailImg from '/imgs/email.svg';
+import { track } from '../utils/track';
 
 const HireMe = () => {
   return (
@@ -12,6 +13,13 @@ const HireMe = () => {
         <div className="chat-wrap">
           <a href="mailto:mike@theweblife.com" className="btn-contact-me">
             Let's Chat
+          </a>
+          <a
+            href="/portfolio"
+            className="btn-view-portfolio"
+            onClick={() => track('cta_click', 'contact')}
+          >
+            View My Portfolio
           </a>
         </div>
         <div className="social-wrap">

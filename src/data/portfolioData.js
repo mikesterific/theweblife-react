@@ -1,18 +1,24 @@
 const portfolioData = [
     {
+      title: "Scale Computing HyperCore Platform",
+      img: "/imgs/port/scale-computing-full.jpg",
+      srcset: "/imgs/port/scale-computing-400.jpg 400w, /imgs/port/scale-computing-600.jpg 600w, /imgs/port/scale-computing-full.jpg 1024w",
+      alt: "Scale Computing HyperCore virtual machine dashboard",
+      paragraphs: "At Scale Computing, I led front-end architecture for a complex enterprise virtual machine management platform. The work included modernizing a legacy UI into Vue and Vuex, building reusable component contracts, wiring real-time VM state synchronization through Socket.IO, REST and Thrift integrations, and expanding Cypress and Jest coverage for production-grade reliability.",
+      roles: ["Architect", "Lead Developer", "Team Lead"]
+    },
+    {
       title: "Dell XPS Proof of Concept",
       img: "/imgs/port/port-dell-xps-poc.jpg",
       srcset: "/imgs/port/port-dell-xps-poc-400.jpg 400w, /imgs/port/port-dell-xps-poc-600.jpg 600w, /imgs/port/port-dell-xps-poc.jpg 800w",
       wideImg: "/imgs/port/xps-poc.jpg",
       wideSrcset: "/imgs/port/xps-poc-400.jpg 400w, /imgs/port/xps-poc-600.jpg 600w, /imgs/port/xps-poc.jpg 800w",
       alt: "Dell XPS POC",
-      hrefMobile: "port/xpsMobile/",
-      hrefDesktop: "port/xps/",
+      hrefMobile: "/dell/xpsMobile/",
+      hrefDesktop: "/dell/xps/",
       buttonLabel: "View Demo",
       paragraphs: "I was asked to showcase Dell's UI Development skills by designing and architecting \"What was possible\". This turned out to be a big hit with Dell leadership, and led to a \"Premium Branding\" initiative. This began a redesign of Dell that started with the Home, Category, Brand pages. Dell is still progressing through it's digital transformation.",
-      roles: ["Designer", "Architect", "Lead Developer"],
-      demoPath: "https://portfolio-demos.yoursite.com/xps",
-      isExternalDemo: true
+      roles: ["Designer", "Architect", "Lead Developer"]
     },
     {
       title: "Dell XPS Landing Page",
@@ -21,12 +27,11 @@ const portfolioData = [
       wideImg: "/imgs/port/xps-dell.jpg",
       wideSrcset: "/imgs/port/xps-dell-400.jpg 400w, /imgs/port/xps-dell-600.jpg 600w, /imgs/port/xps-dell.jpg 800w",
       alt: "Dell Home POC",
-      hrefMobile: "/dell/xps/",
-      hrefDesktop: "/dell/xps/",
+      hrefMobile: "/dell/franchise/",
+      hrefDesktop: "/dell/franchise/",
       buttonLabel: "View Demo",
       paragraphs: "This was designed by the Dell design folks after getting buy-in from leadership based on the POC.",
-      roles: ["Architect", "Lead Developer"],
-      demoPath: "/port/xps"
+      roles: ["Architect", "Lead Developer"]
     },
     {
       title: "Dell Home Proof of Concept",
@@ -39,8 +44,7 @@ const portfolioData = [
       hrefDesktop: "/dell/home/",
       buttonLabel: "View Demo",
       paragraphs: "As with XPS POC above, I was asked to design a proof of concept for the home page. This informed the design for the actual home page, shown below.",
-      roles: ["Designer", "Architect", "Lead Developer"],
-      demoPath: "/port/xps"
+      roles: ["Designer", "Architect", "Lead Developer"]
     },
     {
       title: "Dell Home Page",
@@ -53,8 +57,7 @@ const portfolioData = [
       hrefDesktop: "//www.dell.com/en-us/",
       buttonLabel: "View Live Site",
       paragraphs: "This was a tiger team effort with team members from almost every part of Dell. Starting as an experiment in a few countries this almost immediately got shipped globally. We were able to get a total redesign and greenfield architecture in under a month.",
-      roles: ["Architect", "Lead Developer"],
-      demoPath: "/port/xps"
+      roles: ["Architect", "Lead Developer"]
     },
     {
       title: "Electronic Arts",
@@ -62,8 +65,7 @@ const portfolioData = [
       srcset: "/imgs/port/ea-400.jpg 400w, /imgs/port/ea-600.jpg 600w, /imgs/port/ea-full.jpg 800w",
       alt: "EA",
       paragraphs: "When it came time for EA Support to green-field their internal support site, I helped with a little design help. My regular role at EA was an Architecture/Lead capacity.",
-      roles: ["Designer"],
-      demoPath: "/port/xps"
+      roles: ["Designer"]
     },
     {
       title: "Citi",
@@ -71,8 +73,7 @@ const portfolioData = [
       srcset: "/imgs/port/citi-400.jpg 400w, /imgs/port/citi-600.jpg 600w, /imgs/port/citi-full.jpg 800w",
       alt: "Citi",
       paragraphs: "I started at Citi as a designer, but quickly got to flex my Flash skills (don't laugh it was a thing then).",
-      roles: ["Designer", "Developer"],
-      demoPath: "/port/xps"
+      roles: ["Designer", "Developer"]
     },
     {
       title: "BCBS",
@@ -80,8 +81,7 @@ const portfolioData = [
       srcset: "/imgs/port/bcbsfl-400.jpg 400w, /imgs/port/bcbsfl-600.jpg 600w, /imgs/port/bcbsfl-full.jpg 800w",
       alt: "BCBS",
       paragraphs: "This was a big hit at BCBS. We really got to showcase how to deliver complex data that was intiuitively understood.",
-      roles: ["Designer", "Architect", "Lead Developer"],
-      demoPath: "/port/xps"
+      roles: ["Designer", "Architect", "Lead Developer"]
     },
     {
       title: "VSI",
@@ -89,8 +89,7 @@ const portfolioData = [
       srcset: "/imgs/port/vsi-400.jpg 400w, /imgs/port/vsi-600.jpg 600w, /imgs/port/vsi-full.jpg 800w",
       alt: "vsi",
       paragraphs: "I stepped out of my normal roles and also created the content and concept for this page.",
-      roles: ["Designer", "Lead Developer"],
-      demoPath: "/port/xps"
+      roles: ["Designer", "Lead Developer"]
     },
     {
       title: "Joe Parker Guitars",
@@ -98,8 +97,7 @@ const portfolioData = [
       srcset: "/imgs/port/joeparker-400.jpg 400w, /imgs/port/joeparker-600.jpg 600w, /imgs/port/joeparker-full.jpg 800w",
       alt: "joe parker guitars",
       paragraphs: "Joe is a close friend, so I helped him with his first site.",
-      roles: ["Designer", "Lead Developer"],
-      demoPath: "/port/xps"
+      roles: ["Designer", "Lead Developer"]
     },
     {
       title: "Decision Tree Logo",
@@ -107,8 +105,7 @@ const portfolioData = [
       srcset: "/imgs/port/decisiontree-400.jpg 400w, /imgs/port/decisiontree-600.jpg 600w, /imgs/port/decisiontree-full.jpg 800w",
       alt: "decision tree",
       paragraphs: "The is going back a bit, but I like this logo because it uses two color printing to achieve a full color look.",
-      roles: ["Designer"],
-      demoPath: "/port/xps"
+      roles: ["Designer"]
     },
     {
       title: "BizAtomic Logo",
@@ -116,8 +113,7 @@ const portfolioData = [
       srcset: "/imgs/port/bizatomic-400.jpg 400w, /imgs/port/bizatomic-600.jpg 600w, /imgs/port/bizatomic-full.jpg 800w",
       alt: "bizatomic",
       paragraphs: "Another favorite of mine.",
-      roles: ["Designer"],
-      demoPath: "/port/xps"
+      roles: ["Designer"]
     }
   ];
 

@@ -1,6 +1,6 @@
 const skillGroups = [
   {
-    title: 'Applied AI Product Engineering',
+    title: 'Applied AI Engineering',
     items: [
       'LLM-powered applications',
       'Conversational interfaces',
@@ -39,7 +39,7 @@ const projectHighlights = [
 const AILLMSkillsSection = () => {
   return (
     <section className="ai-llm-wrap container" id="ai-llm" aria-labelledby="ai-llm-title">
-      <p className="ai-llm-kicker">AI / LLM Product Engineering</p>
+      <p className="ai-llm-kicker">AI Engineering</p>
       <h2 id="ai-llm-title">Practical AI, built into real products.</h2>
       <p className="ai-llm-intro">
         I use LLMs as product infrastructure and engineering leverage: RAG systems,

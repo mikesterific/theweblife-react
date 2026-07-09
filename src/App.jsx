@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { trackPageview } from './utils/track'
 import Navigation from './components/Navigation'
 import BioHeader from './components/BioHeader'
 import BriefBio from './components/BriefBio'
@@ -12,6 +13,26 @@ import HireMe from './components/HireMe'
 import PortfolioList from './components/PortfolioList'
 import XPSPage from './components/XPSPage'
 import './less/style.less'
+
+const TRACKED_PATHS = ['/', '/portfolio']
+
+// Module-level guard so StrictMode's double effect invocation in dev
+// doesn't record duplicate pageviews for the same path.
+let lastTrackedPath = null
+
+function PageviewTracker() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    if (TRACKED_PATHS.includes(pathname) && pathname !== lastTrackedPath) {
+      lastTrackedPath = pathname
+      trackPageview()
+    }
+  }, [pathname])
+
+  return null
+}
+
 function App() {
   const [showTop, setShowTop] = useState(false)
   const [showBookDesc, setShowBookDesc] = useState(false)
@@ -27,6 +48,7 @@ function App() {
 
   return (
     <Router>
+      <PageviewTracker />
       <Routes>
         <Route path="/" element={
           <div className={`${showTop ? 'show-top' : ''} ${showBookDesc ? 'show-book-desc-section' : ''}`}>
@@ -53,13 +75,18 @@ function App() {
           </div>
         } />
         <Route path="/portfolio" element={
-          <div className="port-body">  
-          <div className="container">
-            <Navigation />
-            <PortfolioList />
+          <div className={`port-body${showTop ? ' show-top' : ''}`}>
+            <div className="move-wrap">
+              <a href="#portfolio-top" className="move-to-top-wrap">TOP</a>
             </div>
+            <div id="portfolio-top"></div>
+            <Navigation />
+            <div className="container">
+              <PortfolioList />
+            </div>
+            <HireMe />
           </div>
-          } />
+        } />
         <Route path="/portfolio.html" element={<Navigate to="/portfolio" replace />} />
         <Route path="/port/xps" element={<XPSPage />} />
       </Routes>

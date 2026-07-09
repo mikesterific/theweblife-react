@@ -1,8 +1,16 @@
+import { useLocation } from 'react-router-dom'
+import { track } from '../utils/track'
+
 const navItems = [
   {
     label: 'Home',
     href: '/',
     className: 'show-mobile show-tablet nav-home-link',
+  },
+  {
+    label: 'Portfolio',
+    href: '/portfolio',
+    className: 'show-mobile',
   },
   {
     label: 'Performance',
@@ -31,11 +39,6 @@ const navItems = [
     className: 'show-sm-screen',
   },
   {
-    label: 'Portfolio',
-    href: '/portfolio',
-    className: 'show-mobile',
-  },
-  {
     label: 'Contact',
     href: '/#contact',
     className: 'show-mobile',
@@ -43,7 +46,13 @@ const navItems = [
 ]
 
 const Navigation = () => {
+  const { pathname } = useLocation()
+  const showHome = pathname !== '/'
+
   const handleNavigation = (href) => {
+    if (href === '/portfolio') {
+      track('cta_click', 'nav')
+    }
     window.location.href = href
   }
 
@@ -52,7 +61,7 @@ const Navigation = () => {
       <h2 className="visually-hidden" id="main_site_navigation">
         Main Site Navigation
       </h2>
-      <ul>
+      <ul className={showHome ? 'show-home' : undefined}>
         {navItems.map((item) => (
           <li className={item.className} key={item.href}>
             <button type="button" onClick={() => handleNavigation(item.href)}>

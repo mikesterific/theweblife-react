@@ -1,10 +1,12 @@
 const PortfolioItem = ({ item }) => {
-  const desktopHref = item.hrefDesktop || item.demoPath;
-  const mobileHref = item.hrefMobile || desktopHref;
-  const hasDemoLink = mobileHref && desktopHref;
+  // Only show demo buttons when real mobile/desktop hrefs exist.
+  // demoPath alone is a leftover placeholder and must not create fake CTAs.
+  const hasDemoLink = Boolean(item.hrefMobile || item.hrefDesktop);
+  const desktopHref = item.hrefDesktop || item.hrefMobile;
+  const mobileHref = item.hrefMobile || item.hrefDesktop;
 
   return (
-    <article className="port-article">
+    <article className={`port-article${hasDemoLink ? '' : ' port-no-btn'}`}>
       <h2>{item.title}</h2>
       <div className="p-img-wrap">
         <picture>
@@ -40,4 +42,4 @@ const PortfolioItem = ({ item }) => {
   );
 };
 
-export default PortfolioItem; 
+export default PortfolioItem;

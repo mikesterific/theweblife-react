@@ -5,4 +5,28 @@
         margin-bottom: 40px;
         text-align: center;
     }
+    .whm-cta-wrap {
+        text-align: center;
+        padding: 40px 0 10px;
+    }
+    .whm-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 12px 24px;
+        border-radius: 999px;
+        background-color: @blue;
+        color: white;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-decoration: none;
+        box-shadow: 0 10px 24px rgba(44, 108, 191, .3);
+        transition: transform .2s ease, box-shadow .2s ease;
+        &:hover,
+        &:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(44, 108, 191, .4);
+        }
+    }
 }

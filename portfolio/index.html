@@ -39,6 +39,9 @@ body,html{height:100%;position:relative}.move-wrap{position:fixed;z-index:1000;b
     <li class="show-mobile show-tablet nav-home-link">
       <button type="button" data-href="/">Home</button>
     </li>
+    <li class="show-mobile">
+      <button type="button" data-href="/portfolio">Portfolio</button>
+    </li>
     <li class="show-mobile show-tablet">
       <button type="button" data-href="/#performance">Performance</button>
     </li>
@@ -53,9 +56,6 @@ body,html{height:100%;position:relative}.move-wrap{position:fixed;z-index:1000;b
     </li>
     <li class="show-sm-screen">
       <button type="button" data-href="/#story">My Story</button>
-    </li>
-    <li class="show-mobile">
-      <button type="button" data-href="/portfolio">Portfolio</button>
     </li>
     <li class="show-mobile">
       <button type="button" data-href="/#contact">Contact</button>
@@ -991,6 +991,19 @@ body,html{height:100%;position:relative}.move-wrap{position:fixed;z-index:1000;b
     <section class="container">
       <h1>Portfolio</h1>
         <p>Some of the fun projects I've worked on:</p>
+      <article class="port-article port-no-btn Scale Computing HyperCore Platform">
+  <h2>Scale Computing HyperCore Platform</h2>
+  <div class="p-img-wrap">
+    <img srcset="/imgs/port/scale-computing-400.jpg 400w, /imgs/port/scale-computing-600.jpg 600w, /imgs/port/scale-computing-full.jpg 1024w" loading="lazy" src="/imgs/port/scale-computing-full.jpg" alt="Scale Computing HyperCore virtual machine dashboard" />
+  </div>
+  <div class="p-a-col-wrap"><p>At Scale Computing, I led front-end architecture for a complex enterprise virtual machine management platform. The work included modernizing a legacy UI into Vue and Vuex, building reusable component contracts, wiring real-time VM state synchronization through Socket.IO, REST and Thrift integrations, and expanding Cypress and Jest coverage for production-grade reliability.</p></div>
+  <div class="pa-roles-wrap">
+    <h3>Roles:</h3>
+    <ul>
+      <li class='Architect'></li> <li class='Lead Developer'></li> <li class='Team Lead'></li>
+    </ul>
+  </div>
+</article>
       <article class="port-article Dell XPS Proof of Concept">
   <h2>Dell XPS Proof of Concept</h2>
   <div class="p-img-wrap">
@@ -1280,7 +1293,7 @@ var clicks = function () {
       window.cancelAnimationFrame(timeout);
     }
 
-    timeout = window.requestAnimationFrame(function () {
+      timeout = window.requestAnimationFrame(function () {
       if (document.documentElement.scrollTop > window.innerHeight * 1.5) {
         document.body.classList.add("show-top");
       } else {
@@ -1288,6 +1301,28 @@ var clicks = function () {
       }
     });
   }, false);
+})();
+
+// Self-hosted analytics pageview (mirrors src/utils/track.js).
+(function () {
+  try {
+    var payload = JSON.stringify({
+      name: 'pageview',
+      source: '',
+      path: window.location.pathname,
+      ref: document.referrer || ''
+    });
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon('/api/event', new Blob([payload], { type: 'application/json' }));
+    } else {
+      fetch('/api/event', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+        keepalive: true
+      });
+    }
+  } catch (e) { /* analytics must never break the page */ }
 })();</script>
 </body>
 </html>

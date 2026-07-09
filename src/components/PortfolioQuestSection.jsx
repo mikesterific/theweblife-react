@@ -1,3 +1,5 @@
+import { track } from '../utils/track'
+
 const questLinks = [
   {
     title: 'Space Adventure Game',
@@ -74,6 +76,16 @@ const PortfolioQuestSection = () => {
               Start Quest
             </a>
           </div>
+          <p className="pq-portfolio-link-wrap">
+            Prefer the classic view?{' '}
+            <a
+              className="pq-portfolio-link"
+              href="/portfolio"
+              onClick={() => track('cta_click', 'pq-section')}
+            >
+              Browse my portfolio
+            </a>
+          </p>
         </div>
 
         <div className="pq-card-grid" aria-label="Choose an experience">
