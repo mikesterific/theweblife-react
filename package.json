@@ -7,7 +7,8 @@
     "dev": "concurrently \"node server.js\" \"vite\"",
     "build": "vite build && cp -r public/port dist/ && cp -r dell dist/",
     "serve": "node server.js",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node scripts/home-data.test.js"
   },
   "dependencies": {
     "concurrently": "^9.1.0",
