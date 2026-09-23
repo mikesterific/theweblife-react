@@ -3,6 +3,7 @@ import { track } from "../../utils/track"
 import { useActiveSection } from "../../hooks/useActiveSection"
 import signalChain from "../../data/signalChain"
 import ScrollStrip from "./ScrollStrip"
+import DellViewer from "./DellViewer"
 import tigerFull663 from "/imgs/tiger-full-663.jpg"
 
 const SignalHome = () => {
@@ -85,7 +86,7 @@ const SignalHome = () => {
           <h3>{signalChain.dell.title}</h3>
           <p className="sc-claim">{signalChain.dell.claim}</p>
           <p>{signalChain.dell.body}</p>
-          <ScrollStrip frames={signalChain.dell.frames} variant="pair" />
+          <DellViewer demos={signalChain.dell.demos} hint={signalChain.dell.viewerHint} />
         </article>
 
         <article className="sc-case" id={signalChain.rentpath.id}>
@@ -104,6 +105,14 @@ const SignalHome = () => {
           <p className="sc-kicker">{signalChain.scale.kicker}</p>
           <h3>{signalChain.scale.title}</h3>
           <p>{signalChain.scale.body}</p>
+          <img
+            className="sc-case-shot"
+            src={signalChain.scale.img}
+            alt={signalChain.scale.alt}
+            width="1024"
+            height="640"
+            loading="lazy"
+          />
         </article>
       </section>
 

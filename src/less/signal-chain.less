@@ -335,8 +335,8 @@ html:has(.sc-page) {
 
   figcaption {
     display: flex;
-    justify-content: space-between;
-    gap: 8px;
+    flex-direction: column;
+    gap: 4px;
     margin-top: 8px;
     font-size: 0.85rem;
     color: var(--sc-muted);
@@ -345,6 +345,126 @@ html:has(.sc-page) {
       color: var(--sc-cyan);
     }
   }
+}
+
+.sc-frame-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--sc-text);
+}
+
+.sc-frame-roles {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sc-cyan);
+}
+
+.sc-frame-caption {
+  line-height: 1.45;
+}
+
+.sc-case-shot {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(62, 224, 255, 0.2);
+}
+
+.sc-viewer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+
+.sc-viewer-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sc-viewer-tabs,
+.sc-viewer-device {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  button {
+    background: transparent;
+    color: var(--sc-text);
+    border: 1px solid var(--sc-cyan-dim);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+
+    &.is-active {
+      background: var(--sc-cyan);
+      border-color: var(--sc-cyan);
+      color: #062027;
+      font-weight: 650;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--sc-cyan);
+      outline-offset: 2px;
+    }
+  }
+}
+
+.sc-viewer-stage {
+  position: relative;
+  height: clamp(420px, 72vh, 860px);
+  border: 1px solid rgba(62, 224, 255, 0.25);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  &.is-mobile {
+    width: 390px;
+    max-width: 100%;
+    justify-self: center;
+    border-radius: 28px;
+    border: 8px solid #1a2229;
+  }
+}
+
+.sc-viewer-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 16px;
+
+  a {
+    color: var(--sc-cyan);
+    white-space: nowrap;
+  }
+}
+
+.sc-viewer-hint {
+  font-size: 0.8rem;
 }
 
 .sc-strip--quad .sc-frame {

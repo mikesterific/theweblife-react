@@ -60,3 +60,24 @@ if (sources.length === 0) {
     console.log(`  ${source.padEnd(16)} ${count}`);
   }
 }
+
+for (const [name, heading] of [
+  ['demo_view', 'Dell demo tab switches on home:'],
+  ['demo_open', 'Dell demo full-screen opens:'],
+]) {
+  const counts = {};
+  for (const e of events.filter((ev) => ev.name === name)) {
+    const source = e.source || '(unknown)';
+    counts[source] = (counts[source] || 0) + 1;
+  }
+  console.log('');
+  console.log(heading);
+  const rows = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  if (rows.length === 0) {
+    console.log('  (none recorded yet)');
+  } else {
+    for (const [source, count] of rows) {
+      console.log(`  ${source.padEnd(16)} ${count}`);
+    }
+  }
+}

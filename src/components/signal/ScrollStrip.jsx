@@ -22,10 +22,20 @@ const ScrollStrip = ({ frames, variant = "pair" }) => {
       <div className="sc-strip-track" ref={trackRef}>
         {frames.map((frame) => (
           <figure className="sc-frame" key={frame.title}>
-            <img src={frame.img} alt={frame.alt || frame.title} width="800" height="500" />
+            <img
+              src={frame.img}
+              alt={frame.alt || frame.title}
+              width="800"
+              height="500"
+              loading="lazy"
+            />
             <figcaption>
-              <span>{frame.title}</span>
-              {frame.href ? <a href={frame.href}>{frame.cta || "View"}</a> : null}
+              <span className="sc-frame-head">
+                <span>{frame.title}</span>
+                {frame.href ? <a href={frame.href}>{frame.cta || "View"}</a> : null}
+              </span>
+              {frame.roles ? <span className="sc-frame-roles">{frame.roles.join(" · ")}</span> : null}
+              {frame.caption ? <span className="sc-frame-caption">{frame.caption}</span> : null}
             </figcaption>
           </figure>
         ))}

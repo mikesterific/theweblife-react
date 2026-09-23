@@ -1,6 +1,18 @@
 // Rebuilt from the Sept 9 Signal Chain notes. The Mac branch was never pushed.
 // Evidence rules live in scripts/home-data.test.js.
 
+import portfolioData from "./portfolioData.js"
+
+const designTitles = [
+  "Electronic Arts",
+  "Citi",
+  "BCBS",
+  "VSI",
+  "Joe Parker Guitars",
+  "Decision Tree Logo",
+  "BizAtomic Logo",
+]
+
 export const dellClaim =
   "On the Dell configurator, load time went from 10 seconds to 2 seconds, with a like-for-like 30% conversion lift."
 
@@ -45,32 +57,33 @@ const signalChain = {
     claim: dellClaim,
     body:
       "A tiger team from across Dell shipped a greenfield home-page architecture globally in under a month. The same pattern then rolled through home, product, and cart as micro frontends. The proof of concept is what got leadership to fund the premium-branding work.",
-    frames: [
+    viewerHint: "These are the original builds, running live. Scroll inside the frame to explore.",
+    demos: [
       {
-        title: "Concept",
-        img: "/imgs/port/xps-poc.jpg",
-        alt: "Dell XPS proof of concept",
-        href: "/dell/xps/",
-        cta: "View Demo",
+        id: "concept",
+        title: "XPS concept",
+        caption: "The proof of concept that got leadership to fund premium branding.",
+        desktop: "/dell/xps/",
+        mobile: "/dell/xpsMobile/",
       },
       {
-        title: "Home",
+        id: "xps",
+        title: "XPS landing",
+        caption: "Designed by Dell's design team after the concept, built on the same architecture.",
+        desktop: "/dell/franchise/",
+      },
+      {
+        id: "home-poc",
+        title: "Home concept",
+        caption: "The home-page proof of concept that shaped the shipped redesign.",
+        desktop: "/dell/home/",
+      },
+      {
+        id: "home",
+        title: "Shipped home",
+        caption: "The home page as it shipped globally, shown as a screenshot.",
         img: "/imgs/port/home-dell.jpg",
         alt: "Dell home page desktop shot",
-      },
-      {
-        title: "XPS",
-        img: "/imgs/port/xps-dell.jpg",
-        alt: "Dell XPS landing page",
-        href: "/dell/franchise/",
-        cta: "View Demo",
-      },
-      {
-        title: "Home POC",
-        img: "/imgs/port/home-poc.jpg",
-        alt: "Dell home page proof of concept",
-        href: "/dell/home/",
-        cta: "View Demo",
       },
     ],
   },
@@ -90,6 +103,8 @@ const signalChain = {
     title: "Platform, retrieval, and a test loop.",
     body:
       "I led front-end architecture for HyperCore: a Vue and Vuex virtual-machine UI with live state over sockets. Alongside that, a Slack app retrieves answers from historical conversations, and an agentic loop writes and runs unit tests.",
+    img: "/imgs/port/scale-computing-full.jpg",
+    alt: "Scale Computing HyperCore virtual machine dashboard",
   },
   projects: {
     id: "projects",
@@ -118,15 +133,16 @@ const signalChain = {
     title: "Design",
     lede:
       "Earlier design work, kept separate from the engineering cases. Premium branding at Dell followed the proof of concept, and a marketing page from that effort received a Webby after I left.",
-    items: [
-      { title: "Electronic Arts", img: "/imgs/port/ea-full.jpg", alt: "Electronic Arts" },
-      { title: "Citi", img: "/imgs/port/citi-full.jpg", alt: "Citi" },
-      { title: "BCBS", img: "/imgs/port/bcbs-full.jpg", alt: "BCBS" },
-      { title: "VSI", img: "/imgs/port/vsi-full.jpg", alt: "VSI" },
-      { title: "Joe Parker Guitars", img: "/imgs/port/joeparker-full.jpg", alt: "Joe Parker Guitars" },
-      { title: "Decision Tree logo", img: "/imgs/port/decisiontree-full.jpg", alt: "Decision Tree logo" },
-      { title: "BizAtomic logo", img: "/imgs/port/bizatomic-full.jpg", alt: "BizAtomic logo" },
-    ],
+    items: designTitles.map((title) => {
+      const item = portfolioData.find((entry) => entry.title === title)
+      return {
+        title: item.title,
+        img: item.img,
+        alt: item.alt,
+        caption: item.paragraphs,
+        roles: item.roles,
+      }
+    }),
   },
   credentials: [
     {

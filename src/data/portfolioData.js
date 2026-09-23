@@ -80,7 +80,7 @@ const portfolioData = [
       img: "/imgs/port/bcbs-full.jpg",
       srcset: "/imgs/port/bcbsfl-400.jpg 400w, /imgs/port/bcbsfl-600.jpg 600w, /imgs/port/bcbsfl-full.jpg 800w",
       alt: "BCBS",
-      paragraphs: "This was a big hit at BCBS. We really got to showcase how to deliver complex data that was intiuitively understood.",
+      paragraphs: "This was a big hit at BCBS. We really got to showcase how to deliver complex data that was intuitively understood.",
       roles: ["Designer", "Architect", "Lead Developer"]
     },
     {
@@ -104,7 +104,7 @@ const portfolioData = [
       img: "/imgs/port/decisiontree-full.jpg",
       srcset: "/imgs/port/decisiontree-400.jpg 400w, /imgs/port/decisiontree-600.jpg 600w, /imgs/port/decisiontree-full.jpg 800w",
       alt: "decision tree",
-      paragraphs: "The is going back a bit, but I like this logo because it uses two color printing to achieve a full color look.",
+      paragraphs: "This is going back a bit, but I like this logo because it uses two color printing to achieve a full color look.",
       roles: ["Designer"]
     },
     {

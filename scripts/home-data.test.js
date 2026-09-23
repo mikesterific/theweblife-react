@@ -29,14 +29,20 @@ assert.doesNotMatch(rest, /98/)
 assert.equal(rentpath.before, "41")
 assert.equal(rentpath.after, "98")
 
-const home = signalChain.dell.frames.find((frame) => frame.title === "Home")
+const home = signalChain.dell.demos.find((demo) => demo.id === "home")
 assert.ok(home)
-assert.equal(home.href, undefined)
+assert.equal(home.desktop, undefined)
 assert.equal(home.img, "/imgs/port/home-dell.jpg")
-assert.equal(
-  signalChain.dell.frames.some((frame) => /dell\.com/i.test(frame.href || "")),
-  false
-)
+for (const demo of signalChain.dell.demos) {
+  for (const src of [demo.desktop, demo.mobile].filter(Boolean)) {
+    assert.match(src, /^\/dell\/[\w-]+\/$/, `Dell demo must be a local build: ${src}`)
+  }
+}
+
+assert.equal(signalChain.design.items.length, 7)
+for (const item of signalChain.design.items) {
+  assert.ok(item.img && item.caption, `design item missing portfolio data: ${item.title}`)
+}
 
 const hrefs = strings.filter((text) => /^https?:/i.test(text) || text.startsWith("/"))
 assert.equal(hrefs.some((href) => /github\.com/i.test(href)), false)
