@@ -18,9 +18,15 @@ export function mountEffect({ canvas, host, portrait, factory, mobile, reduced }
     px: 0,
     py: 0,
     active: false,
+    // Smoothed pointer velocity in CSS px per 60 Hz frame.
+    pvx: 0,
+    pvy: 0,
+    shocks: [],
     scrollVel: 0,
     anchor: null,
   }
+  let moveX = 0
+  let moveY = 0
 
   let raf = 0
   let running = false
@@ -54,7 +60,13 @@ export function mountEffect({ canvas, host, portrait, factory, mobile, reduced }
     last = now
     time += dt
     input.scrollVel *= Math.pow(0.04, dt)
+    const clamp = (v) => Math.max(-40, Math.min(40, v))
+    input.pvx = input.pvx * 0.65 + clamp(moveX / (dt * 60)) * 0.35
+    input.pvy = input.pvy * 0.65 + clamp(moveY / (dt * 60)) * 0.35
+    moveX = 0
+    moveY = 0
     effect.frame(time, dt, input)
+    input.shocks.length = 0
   }
 
   const start = () => {
@@ -73,14 +85,28 @@ export function mountEffect({ canvas, host, portrait, factory, mobile, reduced }
 
   const onPointerMove = (event) => {
     const rect = box.getBoundingClientRect()
-    input.px = event.clientX - rect.left
-    input.py = event.clientY - rect.top
-    input.x = input.px / rect.width
-    input.y = input.py / rect.height
+    const nx = event.clientX - rect.left
+    const ny = event.clientY - rect.top
+    if (input.active) {
+      moveX += nx - input.px
+      moveY += ny - input.py
+    }
+    input.px = nx
+    input.py = ny
+    input.x = nx / rect.width
+    input.y = ny / rect.height
     input.active = true
   }
   const onPointerLeave = () => {
     input.active = false
+    input.pvx = 0
+    input.pvy = 0
+  }
+  const onPointerDown = (event) => {
+    const rect = box.getBoundingClientRect()
+    if (input.shocks.length < 4) {
+      input.shocks.push({ x: event.clientX - rect.left, y: event.clientY - rect.top })
+    }
   }
   const onScroll = () => {
     const y = window.scrollY
@@ -101,6 +127,7 @@ export function mountEffect({ canvas, host, portrait, factory, mobile, reduced }
   if (!reduced) {
     host.addEventListener("pointermove", onPointerMove, { passive: true })
     host.addEventListener("pointerleave", onPointerLeave)
+    host.addEventListener("pointerdown", onPointerDown, { passive: true })
     window.addEventListener("scroll", onScroll, { passive: true })
   }
   document.addEventListener("visibilitychange", sync)
@@ -114,6 +141,7 @@ export function mountEffect({ canvas, host, portrait, factory, mobile, reduced }
     intersection.disconnect()
     host.removeEventListener("pointermove", onPointerMove)
     host.removeEventListener("pointerleave", onPointerLeave)
+    host.removeEventListener("pointerdown", onPointerDown)
     window.removeEventListener("scroll", onScroll)
     document.removeEventListener("visibilitychange", sync)
     effect.destroy()
