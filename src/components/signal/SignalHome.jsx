@@ -1,14 +1,20 @@
-import { useMemo } from "react"
+import { useMemo, useRef } from "react"
 import { track } from "../../utils/track"
 import { useActiveSection } from "../../hooks/useActiveSection"
+import { useHeroFx } from "../../hooks/useHeroFx"
 import signalChain from "../../data/signalChain"
 import ScrollStrip from "./ScrollStrip"
 import DellViewer from "./DellViewer"
+import KineticBackdrop from "./kinetic/KineticBackdrop"
+import HeroFxSwitcher from "./kinetic/HeroFxSwitcher"
 import tigerFull663 from "/imgs/tiger-full-663.jpg"
 
 const SignalHome = () => {
   const ids = useMemo(() => signalChain.nav.map((item) => item.id), [])
   const active = useActiveSection(ids)
+  const heroRef = useRef(null)
+  const portraitRef = useRef(null)
+  const [heroFx, setHeroFx] = useHeroFx()
 
   return (
     <div className="sc-page">
@@ -39,7 +45,8 @@ const SignalHome = () => {
         </nav>
       </header>
 
-      <section className="sc-panel sc-hero" id={signalChain.hero.id}>
+      <section className="sc-panel sc-hero" id={signalChain.hero.id} ref={heroRef}>
+        <KineticBackdrop variant={heroFx} hostRef={heroRef} portraitRef={portraitRef} />
         <div className="sc-hero-copy">
           <p className="sc-status">{signalChain.hero.status}</p>
           <h1>{signalChain.hero.h1}</h1>
@@ -58,12 +65,14 @@ const SignalHome = () => {
           </div>
         </div>
         <img
+          ref={portraitRef}
           className="sc-portrait"
           src={tigerFull663}
           alt="Michael Garrett Jones hugging a tiger"
           width="663"
           height="800"
         />
+        <HeroFxSwitcher value={heroFx} onChange={setHeroFx} />
       </section>
 
       <section className="sc-panel" id={signalChain.aiSystems.id}>
