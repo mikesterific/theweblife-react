@@ -1,11 +1,11 @@
 import { useCallback, useState } from "react"
-import { heroFxIds } from "../components/signal/kinetic/variants"
+import { defaultHeroFx, heroFxIds } from "../components/signal/kinetic/variants"
 
 // The ?hero= param makes a chosen sample shareable during review.
 export function useHeroFx() {
   const [fx, setFx] = useState(() => {
     const requested = new URLSearchParams(window.location.search).get("hero")
-    return heroFxIds.includes(requested) ? requested : heroFxIds[0]
+    return heroFxIds.includes(requested) ? requested : defaultHeroFx
   })
 
   const select = useCallback((id) => {
