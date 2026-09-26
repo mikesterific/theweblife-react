@@ -85,6 +85,7 @@ const SignalHome = () => {
           onChange={setHeroFx}
           playing={motion.playing}
           pausedBy={motion.pausedBy}
+          previewing={motion.previewing}
           onToggleMotion={motion.toggle}
         />
       </section>

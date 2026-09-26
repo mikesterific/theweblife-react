@@ -1,5 +1,7 @@
 export const REDUCED_QUERY = "(prefers-reduced-motion: reduce)"
-export const MOBILE_QUERY = "(max-width: 768px), (pointer: coarse)"
+// Touch-first Windows laptops report pointer: coarse at desktop widths, so a
+// coarse pointer alone does not trigger the mobile throttle.
+export const MOBILE_QUERY = "(max-width: 768px), (pointer: coarse) and (max-width: 1024px)"
 
 // An effect factory receives { canvas, mobile, reduced } and returns null when
 // the canvas context is unavailable, or an object with:

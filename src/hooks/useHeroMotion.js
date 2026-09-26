@@ -2,43 +2,59 @@ import { useCallback, useState } from "react"
 import { useMediaQuery } from "./useMediaQuery"
 import { REDUCED_QUERY } from "../components/signal/kinetic/runner"
 
-const STORAGE_KEY = "heroMotion"
+const PAUSE_KEY = "heroMotion"
+const PREVIEW_KEY = "heroMotionPreview"
 
-function store(value) {
+function read(storage, key) {
   try {
-    window.localStorage.setItem(STORAGE_KEY, value)
-  } catch {
-    // Storage can be unavailable in private modes; the choice still applies for this visit.
-  }
-}
-
-// ?motion=on|off wins and is remembered, so a reviewer can force a state.
-function initialChoice() {
-  const param = new URLSearchParams(window.location.search).get("motion")
-  if (param === "on" || param === "off") {
-    store(param)
-    return param
-  }
-  try {
-    return window.localStorage.getItem(STORAGE_KEY)
+    return window[storage].getItem(key)
   } catch {
     return null
   }
 }
 
-// An explicit visitor choice wins over the OS reduced-motion setting, which
-// Windows turns on silently when "Animation effects" is off.
+function write(storage, key, value) {
+  try {
+    if (value == null) window[storage].removeItem(key)
+    else window[storage].setItem(key, value)
+  } catch {
+    // Storage can be unavailable in private modes; the choice still applies for this visit.
+  }
+}
+
+// ?motion=on previews for this session; ?motion=off pauses and is remembered.
+function initialState() {
+  const param = new URLSearchParams(window.location.search).get("motion")
+  if (param === "on") {
+    write("localStorage", PAUSE_KEY, null)
+    write("sessionStorage", PREVIEW_KEY, "1")
+  } else if (param === "off") {
+    write("localStorage", PAUSE_KEY, "off")
+  }
+  return {
+    paused: read("localStorage", PAUSE_KEY) === "off",
+    preview: read("sessionStorage", PREVIEW_KEY) === "1",
+  }
+}
+
+// The OS reduced-motion setting (Windows: "Animation effects" off) keeps the
+// still frame by default. "Preview motion" overrides it for this session only,
+// so the accessible default comes back in a new session.
 export function useHeroMotion() {
   const systemReduced = useMediaQuery(REDUCED_QUERY)
-  const [choice, setChoice] = useState(initialChoice)
-  const playing = choice ? choice === "on" : !systemReduced
-  const pausedBy = playing ? null : choice === "off" ? "you" : "system"
+  const [state, setState] = useState(initialState)
+  const pausedBy = state.paused ? "you" : systemReduced && !state.preview ? "system" : null
+  const playing = pausedBy === null
+  const previewing = playing && systemReduced
 
   const toggle = useCallback(() => {
-    const next = playing ? "off" : "on"
-    setChoice(next)
-    store(next)
-  }, [playing])
+    const next = playing
+      ? { paused: true, preview: false }
+      : { paused: false, preview: systemReduced }
+    write("localStorage", PAUSE_KEY, next.paused ? "off" : null)
+    write("sessionStorage", PREVIEW_KEY, next.preview ? "1" : null)
+    setState(next)
+  }, [playing, systemReduced])
 
-  return { playing, pausedBy, systemReduced, toggle }
+  return { playing, pausedBy, previewing, toggle }
 }

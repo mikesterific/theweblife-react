@@ -32,7 +32,8 @@ const KineticBackdrop = ({ variant, playing, pausedBy, hostRef, portraitRef }) =
           const { width, height } = canvasRef.current
           console.info(
             `[hero] ${variant} ${unmount ? "mounted" : "unavailable, using CSS fallback"} ` +
-              `(${width}x${height}), motion ${playing ? "playing" : `paused by ${pausedBy}`}`
+              `(${width}x${height}${mobile ? ", mobile throttle" : ""}), ` +
+              `motion ${playing ? "playing" : `paused by ${pausedBy}`}`
           )
         }
       })
