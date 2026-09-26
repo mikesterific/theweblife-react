@@ -231,9 +231,22 @@ html:has(.sc-page) {
   }
 }
 
-.sc-fx-switch {
+.sc-fx-bar {
   grid-column: 1 / -1;
-  justify-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px 14px;
+}
+
+.sc-fx-note {
+  margin: 0;
+  color: var(--sc-text);
+  font-size: 0.85rem;
+}
+
+.sc-fx-switch {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -252,6 +265,13 @@ html:has(.sc-page) {
     margin-left: 6px;
     border-style: dashed;
     color: var(--sc-cyan);
+
+    &.is-paused {
+      border-style: solid;
+      background: var(--sc-cyan);
+      color: #062027;
+      font-weight: 650;
+    }
   }
 }
 
@@ -668,8 +688,12 @@ html:has(.sc-page) {
       linear-gradient(180deg, rgba(7, 9, 12, 0.82) 0%, rgba(7, 9, 12, 0.55) 55%, rgba(7, 9, 12, 0.4) 100%);
   }
 
+  .sc-fx-bar {
+    justify-content: stretch;
+  }
+
   .sc-fx-switch {
-    justify-self: stretch;
+    flex: 1 1 100%;
     border-radius: 14px;
 
     button {

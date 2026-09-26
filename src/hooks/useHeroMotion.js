@@ -4,7 +4,21 @@ import { REDUCED_QUERY } from "../components/signal/kinetic/runner"
 
 const STORAGE_KEY = "heroMotion"
 
-function readChoice() {
+function store(value) {
+  try {
+    window.localStorage.setItem(STORAGE_KEY, value)
+  } catch {
+    // Storage can be unavailable in private modes; the choice still applies for this visit.
+  }
+}
+
+// ?motion=on|off wins and is remembered, so a reviewer can force a state.
+function initialChoice() {
+  const param = new URLSearchParams(window.location.search).get("motion")
+  if (param === "on" || param === "off") {
+    store(param)
+    return param
+  }
   try {
     return window.localStorage.getItem(STORAGE_KEY)
   } catch {
@@ -16,18 +30,15 @@ function readChoice() {
 // Windows turns on silently when "Animation effects" is off.
 export function useHeroMotion() {
   const systemReduced = useMediaQuery(REDUCED_QUERY)
-  const [choice, setChoice] = useState(readChoice)
+  const [choice, setChoice] = useState(initialChoice)
   const playing = choice ? choice === "on" : !systemReduced
+  const pausedBy = playing ? null : choice === "off" ? "you" : "system"
 
   const toggle = useCallback(() => {
     const next = playing ? "off" : "on"
     setChoice(next)
-    try {
-      window.localStorage.setItem(STORAGE_KEY, next)
-    } catch {
-      // Storage can be unavailable in private modes; the choice still applies for this visit.
-    }
+    store(next)
   }, [playing])
 
-  return { playing, systemReduced, toggle }
+  return { playing, pausedBy, systemReduced, toggle }
 }

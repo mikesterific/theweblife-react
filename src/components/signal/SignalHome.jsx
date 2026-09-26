@@ -51,6 +51,7 @@ const SignalHome = () => {
         <KineticBackdrop
           variant={heroFx}
           playing={motion.playing}
+          pausedBy={motion.pausedBy}
           hostRef={heroRef}
           portraitRef={portraitRef}
         />
@@ -83,7 +84,7 @@ const SignalHome = () => {
           value={heroFx}
           onChange={setHeroFx}
           playing={motion.playing}
-          systemReduced={motion.systemReduced}
+          pausedBy={motion.pausedBy}
           onToggleMotion={motion.toggle}
         />
       </section>

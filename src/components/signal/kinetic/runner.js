@@ -54,8 +54,13 @@ export function mountEffect({ canvas, host, portrait, factory, mobile, reduced }
     if (reduced) effect.still(input)
   }
 
+  let frames = 0
+
   const tick = (now) => {
     raf = requestAnimationFrame(tick)
+    if (import.meta.env.DEV && ++frames === 60) {
+      console.info(`[hero] animating: 60 frames in ${(time + 0.001).toFixed(2)}s of effect time`)
+    }
     const dt = Math.min(0.05, Math.max(0.001, (now - last) / 1000))
     last = now
     time += dt
@@ -118,8 +123,8 @@ export function mountEffect({ canvas, host, portrait, factory, mobile, reduced }
   resizeObserver.observe(box)
   if (portrait) resizeObserver.observe(portrait)
 
-  const intersection = new IntersectionObserver(([entry]) => {
-    visible = entry.isIntersecting
+  const intersection = new IntersectionObserver((entries) => {
+    visible = entries[entries.length - 1].isIntersecting
     sync()
   })
   intersection.observe(box)
