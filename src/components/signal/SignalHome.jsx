@@ -1,13 +1,12 @@
 import { useMemo, useRef } from "react"
 import { track } from "../../utils/track"
 import { useActiveSection } from "../../hooks/useActiveSection"
-import { useHeroFx } from "../../hooks/useHeroFx"
 import { useHeroMotion } from "../../hooks/useHeroMotion"
 import signalChain from "../../data/signalChain"
 import ScrollStrip from "./ScrollStrip"
 import DellViewer from "./DellViewer"
 import KineticBackdrop from "./kinetic/KineticBackdrop"
-import HeroFxSwitcher from "./kinetic/HeroFxSwitcher"
+import HeroMotionControl from "./kinetic/HeroMotionControl"
 import tigerFull663 from "/imgs/tiger-full-663.jpg"
 
 const SignalHome = () => {
@@ -15,7 +14,6 @@ const SignalHome = () => {
   const active = useActiveSection(ids)
   const heroRef = useRef(null)
   const portraitRef = useRef(null)
-  const [heroFx, setHeroFx] = useHeroFx()
   const motion = useHeroMotion()
 
   return (
@@ -49,7 +47,6 @@ const SignalHome = () => {
 
       <section className="sc-panel sc-hero" id={signalChain.hero.id} ref={heroRef}>
         <KineticBackdrop
-          variant={heroFx}
           playing={motion.playing}
           pausedBy={motion.pausedBy}
           hostRef={heroRef}
@@ -80,13 +77,11 @@ const SignalHome = () => {
           width="663"
           height="800"
         />
-        <HeroFxSwitcher
-          value={heroFx}
-          onChange={setHeroFx}
+        <HeroMotionControl
           playing={motion.playing}
           pausedBy={motion.pausedBy}
           previewing={motion.previewing}
-          onToggleMotion={motion.toggle}
+          onToggle={motion.toggle}
         />
       </section>
 

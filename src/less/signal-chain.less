@@ -246,32 +246,27 @@ html:has(.sc-page) {
   font-size: 0.85rem;
 }
 
-.sc-fx-switch {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 4px 4px 12px;
-  border: 1px solid var(--sc-cyan-dim);
+.sc-fx-motion {
+  border: 1px dashed var(--sc-cyan-dim);
   border-radius: 999px;
+  padding: 6px 12px;
   background: rgba(7, 9, 12, 0.72);
   backdrop-filter: blur(8px);
+  color: var(--sc-cyan);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
 
-  .sc-kicker {
-    margin-right: 4px;
+  &.is-paused {
+    border: 1px solid var(--sc-cyan);
+    background: var(--sc-cyan);
+    color: #062027;
+    font-weight: 650;
   }
 
-  button.sc-fx-motion {
-    margin-left: 6px;
-    border-style: dashed;
-    color: var(--sc-cyan);
-
-    &.is-paused {
-      border-style: solid;
-      background: var(--sc-cyan);
-      color: #062027;
-      font-weight: 650;
-    }
+  &:focus-visible {
+    outline: 2px solid var(--sc-cyan);
+    outline-offset: 2px;
   }
 }
 
@@ -496,8 +491,7 @@ html:has(.sc-page) {
 }
 
 .sc-viewer-tabs,
-.sc-viewer-device,
-.sc-fx-switch {
+.sc-viewer-device {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -689,17 +683,7 @@ html:has(.sc-page) {
   }
 
   .sc-fx-bar {
-    justify-content: stretch;
-  }
-
-  .sc-fx-switch {
-    flex: 1 1 100%;
-    border-radius: 14px;
-
-    button {
-      padding: 5px 10px;
-      font-size: 0.8rem;
-    }
+    justify-content: flex-start;
   }
 
   .sc-frame,
