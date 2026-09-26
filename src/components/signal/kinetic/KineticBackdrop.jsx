@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "../../../hooks/useMediaQuery"
-import { MOBILE_QUERY, REDUCED_QUERY, mountEffect } from "./runner"
+import { MOBILE_QUERY, mountEffect } from "./runner"
 import { heroFxVariants } from "./variants"
 
-const KineticBackdrop = ({ variant, hostRef, portraitRef }) => {
+const KineticBackdrop = ({ variant, playing, hostRef, portraitRef }) => {
   const canvasRef = useRef(null)
-  const reduced = useMediaQuery(REDUCED_QUERY)
+  const reduced = !playing
   const mobile = useMediaQuery(MOBILE_QUERY)
   const [fallback, setFallback] = useState(false)
 

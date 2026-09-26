@@ -2,6 +2,7 @@ import { useMemo, useRef } from "react"
 import { track } from "../../utils/track"
 import { useActiveSection } from "../../hooks/useActiveSection"
 import { useHeroFx } from "../../hooks/useHeroFx"
+import { useHeroMotion } from "../../hooks/useHeroMotion"
 import signalChain from "../../data/signalChain"
 import ScrollStrip from "./ScrollStrip"
 import DellViewer from "./DellViewer"
@@ -15,6 +16,7 @@ const SignalHome = () => {
   const heroRef = useRef(null)
   const portraitRef = useRef(null)
   const [heroFx, setHeroFx] = useHeroFx()
+  const motion = useHeroMotion()
 
   return (
     <div className="sc-page">
@@ -46,7 +48,12 @@ const SignalHome = () => {
       </header>
 
       <section className="sc-panel sc-hero" id={signalChain.hero.id} ref={heroRef}>
-        <KineticBackdrop variant={heroFx} hostRef={heroRef} portraitRef={portraitRef} />
+        <KineticBackdrop
+          variant={heroFx}
+          playing={motion.playing}
+          hostRef={heroRef}
+          portraitRef={portraitRef}
+        />
         <div className="sc-hero-copy">
           <p className="sc-status">{signalChain.hero.status}</p>
           <h1>{signalChain.hero.h1}</h1>
@@ -72,7 +79,13 @@ const SignalHome = () => {
           width="663"
           height="800"
         />
-        <HeroFxSwitcher value={heroFx} onChange={setHeroFx} />
+        <HeroFxSwitcher
+          value={heroFx}
+          onChange={setHeroFx}
+          playing={motion.playing}
+          systemReduced={motion.systemReduced}
+          onToggleMotion={motion.toggle}
+        />
       </section>
 
       <section className="sc-panel" id={signalChain.aiSystems.id}>

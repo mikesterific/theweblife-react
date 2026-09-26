@@ -1,6 +1,6 @@
 import { heroFxVariants } from "./variants"
 
-const HeroFxSwitcher = ({ value, onChange }) => (
+const HeroFxSwitcher = ({ value, onChange, playing, systemReduced, onToggleMotion }) => (
   <div className="sc-fx-switch" role="group" aria-label="Header background sample">
     <span className="sc-kicker" aria-hidden="true">
       Header
@@ -16,6 +16,18 @@ const HeroFxSwitcher = ({ value, onChange }) => (
         {variant.label}
       </button>
     ))}
+    <button
+      type="button"
+      className="sc-fx-motion"
+      onClick={onToggleMotion}
+      title={
+        !playing && systemReduced
+          ? "Paused because your system asks for reduced motion"
+          : undefined
+      }
+    >
+      {playing ? "Pause motion" : "Play motion"}
+    </button>
   </div>
 )
 
