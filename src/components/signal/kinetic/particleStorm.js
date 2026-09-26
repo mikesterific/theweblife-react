@@ -19,16 +19,19 @@ export default function particleStorm({ canvas, mobile }) {
   const vy = new Float32Array(count)
   const px = new Float32Array(count)
   const py = new Float32Array(count)
+  const life = new Float32Array(count)
   const bursts = []
   let w = 0
   let h = 0
   let cols = 0
   let grid = null
 
+  // Finite lifetimes stop the flow field from herding everything into a few streams.
   const seed = (i) => {
     x[i] = px[i] = Math.random() * w
     y[i] = py[i] = Math.random() * h
     vx[i] = vy[i] = 0
+    life[i] = 1.5 + Math.random() * 4
   }
 
   const clear = () => {
@@ -63,6 +66,8 @@ export default function particleStorm({ canvas, mobile }) {
     grid.fill(-1)
 
     for (let i = 0; i < count; i++) {
+      life[i] -= dt
+      if (life[i] <= 0) seed(i)
       const xi = x[i]
       const yi = y[i]
       const angle =
@@ -70,15 +75,15 @@ export default function particleStorm({ canvas, mobile }) {
           Math.cos(yi * 0.006 - t * 0.5) +
           Math.sin((xi - yi) * 0.0021 + t * 0.35)) *
         Math.PI
-      let ax = Math.cos(angle) * 0.09 * surge
-      let ay = Math.sin(angle) * 0.09 * surge
+      let ax = Math.cos(angle) * 0.09 * surge + (Math.random() - 0.5) * 0.08
+      let ay = Math.sin(angle) * 0.09 * surge + (Math.random() - 0.5) * 0.08
 
       let dx = xi - cx
       let dy = yi - cy
       let d = Math.sqrt(dx * dx + dy * dy) + 1
-      const swirl = 0.08 * surge * Math.min(1, radius / d)
-      ax += (-dy / d) * swirl - (dx / d) * 0.012 * surge
-      ay += (dx / d) * swirl - (dy / d) * 0.012 * surge
+      const swirl = 0.07 * surge * Math.min(1, radius / d)
+      ax += (-dy / d) * swirl
+      ay += (dx / d) * swirl
 
       if (input.active) {
         dx = xi - input.px
