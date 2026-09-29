@@ -48,7 +48,6 @@ const SignalHome = () => {
       <section className="sc-panel sc-hero" id={signalChain.hero.id} ref={heroRef}>
         <KineticBackdrop
           playing={motion.playing}
-          pausedBy={motion.pausedBy}
           hostRef={heroRef}
           portraitRef={portraitRef}
         />
@@ -79,8 +78,6 @@ const SignalHome = () => {
         />
         <HeroMotionControl
           playing={motion.playing}
-          pausedBy={motion.pausedBy}
-          previewing={motion.previewing}
           onToggle={motion.toggle}
         />
       </section>

@@ -4,7 +4,7 @@ import { MOBILE_QUERY, mountEffect } from "./runner"
 
 const loadStorm = () => import("./particleStorm.js")
 
-const KineticBackdrop = ({ playing, pausedBy, hostRef, portraitRef }) => {
+const KineticBackdrop = ({ playing, hostRef, portraitRef }) => {
   const canvasRef = useRef(null)
   const reduced = !playing
   const mobile = useMediaQuery(MOBILE_QUERY)
@@ -32,7 +32,7 @@ const KineticBackdrop = ({ playing, pausedBy, hostRef, portraitRef }) => {
           console.info(
             `[hero] storm ${unmount ? "mounted" : "unavailable, using CSS fallback"} ` +
               `(${width}x${height}${mobile ? ", mobile throttle" : ""}), ` +
-              `motion ${playing ? "playing" : `paused by ${pausedBy}`}`
+              `motion ${playing ? "playing" : "paused"}`
           )
         }
       })
@@ -45,12 +45,12 @@ const KineticBackdrop = ({ playing, pausedBy, hostRef, portraitRef }) => {
       cancelled = true
       unmount?.()
     }
-  }, [mobile, reduced, playing, pausedBy, hostRef, portraitRef])
+  }, [mobile, reduced, playing, hostRef, portraitRef])
 
   return (
     <div
       className={`sc-hero-fx${fallback ? " is-fallback" : ""}`}
-      data-motion={playing ? "playing" : `paused-${pausedBy}`}
+      data-motion={playing ? "playing" : "paused"}
       aria-hidden="true"
     >
       <canvas ref={canvasRef} />
