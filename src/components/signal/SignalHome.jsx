@@ -52,7 +52,7 @@ const SignalHome = () => {
           portraitRef={portraitRef}
         />
         <div className="sc-hero-copy">
-          <p className="sc-status">{signalChain.hero.status}</p>
+          {signalChain.hero.status ? <p className="sc-status">{signalChain.hero.status}</p> : null}
           <h1>{signalChain.hero.h1}</h1>
           <p className="sc-claim">{signalChain.hero.claim}</p>
           <div className="sc-cta">

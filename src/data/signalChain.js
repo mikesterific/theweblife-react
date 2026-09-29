@@ -22,7 +22,6 @@ const signalChain = {
   hero: {
     id: "the-bet",
     h1: "Interface craft. Systems architecture. Applied AI.",
-    status: "Open to work",
     claim: dellClaim,
   },
   nav: [
