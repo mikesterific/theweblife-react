@@ -7,7 +7,7 @@ import ScrollStrip from "./ScrollStrip"
 import DellViewer from "./DellViewer"
 import KineticBackdrop from "./kinetic/KineticBackdrop"
 import HeroMotionControl from "./kinetic/HeroMotionControl"
-import tigerFull663 from "/imgs/tiger-full-663.jpg"
+import mug from "../../assets/imgs/mug.png"
 
 const SignalHome = () => {
   const ids = useMemo(() => signalChain.nav.map((item) => item.id), [])
@@ -72,10 +72,10 @@ const SignalHome = () => {
         <img
           ref={portraitRef}
           className="sc-portrait"
-          src={tigerFull663}
-          alt="Michael Garrett Jones hugging a tiger"
-          width="663"
-          height="800"
+          src={mug}
+          alt="Portrait of Michael Garrett Jones"
+          width="400"
+          height="457"
         />
         <HeroMotionControl
           playing={motion.playing}

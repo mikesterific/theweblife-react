@@ -161,7 +161,7 @@ html:has(.sc-page) {
 .sc-hero {
   isolation: isolate;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 240px;
+  grid-template-columns: minmax(0, 1fr) 300px;
   grid-template-rows: 1fr auto;
   gap: 20px 28px;
   align-items: center;
@@ -321,10 +321,11 @@ html:has(.sc-page) {
 }
 
 .sc-portrait {
-  width: 240px;
+  width: 300px;
   height: auto;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 400 / 457;
   object-fit: cover;
+  background: var(--sc-bg);
   border-radius: 16px;
   justify-self: end;
   box-shadow:
@@ -673,7 +674,7 @@ html:has(.sc-page) {
   }
 
   .sc-portrait {
-    width: min(220px, 70%);
+    width: min(260px, 78%);
     justify-self: start;
   }
 
