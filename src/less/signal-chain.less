@@ -170,13 +170,19 @@ html:has(.sc-page) {
   background: var(--sc-bg);
 
   h1,
-  .sc-claim {
+  .sc-claim,
+  .sc-intro {
     text-shadow: 0 1px 18px rgba(7, 9, 12, 0.85);
   }
 
   h1 {
     color: #fff;
   }
+}
+
+.sc-intro {
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  max-width: 56ch;
 }
 
 .sc-hero-copy {

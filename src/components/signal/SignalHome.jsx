@@ -53,11 +53,12 @@ const SignalHome = () => {
         />
         <div className="sc-hero-copy">
           {signalChain.hero.status ? <p className="sc-status">{signalChain.hero.status}</p> : null}
+          <p className="sc-intro">{signalChain.hero.intro}</p>
           <h1>{signalChain.hero.h1}</h1>
-          <p className="sc-claim">{signalChain.hero.claim}</p>
+          <p className="sc-claim">{signalChain.hero.lede}</p>
           <div className="sc-cta">
-            <a className="sc-btn sc-btn-primary" href="#contact">
-              Get in touch
+            <a className="sc-btn sc-btn-primary" href={signalChain.hero.cta.href}>
+              {signalChain.hero.cta.label}
             </a>
             <a
               className="sc-btn sc-btn-secondary"

@@ -12,9 +12,21 @@ const strings = walk(signalChain)
 const blob = strings.join("\n")
 const dellText = walk(signalChain.dell).join("\n")
 
-assert.equal(signalChain.hero.claim, dellClaim)
 assert.equal(signalChain.dell.claim, dellClaim)
+assert.equal(strings.filter((text) => text === dellClaim).length, 1, "Dell claim appears only in the Dell case")
+assert.doesNotMatch(walk(signalChain.hero).join("\n"), /Dell|10 seconds|30%/)
 assert.equal(signalChain.hero.h1, "Interface craft. Systems architecture. Applied AI.")
+assert.equal(
+  signalChain.hero.intro,
+  "I'm Michael Garrett Jones: former print designer, web designer, elite coder, and Apress author of Pro HTML5."
+)
+assert.equal(
+  signalChain.hero.lede,
+  "Nodes light up when the system works. Here's the chain of work that got them there."
+)
+assert.equal(signalChain.hero.cta.label, "See the work")
+assert.equal(signalChain.hero.status, undefined)
+assert.doesNotMatch(blob, /open to work|hire me|\bhiring\b|job (search|hunt)/i)
 
 assert.doesNotMatch(blob, /\+100%/)
 assert.doesNotMatch(blob, /RAG-shaped/i)

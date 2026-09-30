@@ -21,8 +21,11 @@ const signalChain = {
   theme: "Signal Chain",
   hero: {
     id: "the-bet",
+    intro:
+      "I'm Michael Garrett Jones: former print designer, web designer, elite coder, and Apress author of Pro HTML5.",
     h1: "Interface craft. Systems architecture. Applied AI.",
-    claim: dellClaim,
+    lede: "Nodes light up when the system works. Here's the chain of work that got them there.",
+    cta: { label: "See the work", href: "#engineering" },
   },
   nav: [
     { id: "ai-systems", label: "AI systems" },
