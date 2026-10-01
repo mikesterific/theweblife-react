@@ -8,6 +8,9 @@
   --sc-muted: #9aabB8;
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
   min-height: 100vh;
   color: var(--sc-text);
   background: var(--sc-bg);
@@ -161,7 +164,7 @@ html:has(.sc-page) {
 .sc-hero {
   isolation: isolate;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
+  grid-template-columns: minmax(0, 1fr) 400px;
   grid-template-rows: 1fr auto;
   gap: 20px 28px;
   align-items: center;
@@ -173,16 +176,17 @@ html:has(.sc-page) {
   .sc-claim,
   .sc-intro {
     text-shadow: 0 1px 18px rgba(7, 9, 12, 0.85);
+    max-width: 100%;
   }
 
   h1 {
     color: #fff;
+    font-size: clamp(1.7rem, 2.4vw + 0.6rem, 3.35rem);
   }
 }
 
 .sc-intro {
-  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
-  max-width: 56ch;
+  font-size: clamp(0.95rem, 1.05vw, 1.2rem);
 }
 
 .sc-hero-copy {
@@ -321,7 +325,7 @@ html:has(.sc-page) {
 }
 
 .sc-portrait {
-  width: 300px;
+  width: 400px;
   height: auto;
   aspect-ratio: 400 / 457;
   object-fit: cover;
