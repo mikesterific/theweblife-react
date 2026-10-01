@@ -92,6 +92,24 @@ const SignalHome = () => {
             <li key={point}>{point}</li>
           ))}
         </ul>
+        <div className="sc-posts">
+          <h3>On LinkedIn</h3>
+          <ul>
+            {signalChain.aiSystems.posts.map((post) => (
+              <li key={post.href}>
+                <a href={post.href} target="_blank" rel="noreferrer">
+                  <img className="sc-post-image" src={post.img} alt="" />
+                  <span className="sc-post-copy">
+                    <span className="sc-kicker">{post.date}</span>
+                    <strong>{post.title}</strong>
+                    <span className="sc-post-excerpt">{post.excerpt}</span>
+                    <span className="sc-post-link">Read on LinkedIn</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section className="sc-panel" id={signalChain.engineering.id}>

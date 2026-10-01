@@ -349,6 +349,76 @@ html:has(.sc-page) {
   }
 }
 
+.sc-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--sc-cyan-dim);
+    border-radius: 12px;
+    color: var(--sc-text);
+    text-decoration: none;
+    background: rgba(7, 9, 12, 0.45);
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--sc-cyan);
+    }
+
+    strong {
+      font-weight: 600;
+      line-height: 1.3;
+    }
+  }
+
+  .sc-post-image {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: contain;
+    background: #061018;
+  }
+
+  .sc-post-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    padding: 14px 16px;
+  }
+
+  .sc-post-excerpt {
+    color: var(--sc-muted);
+    line-height: 1.45;
+    font-size: 0.92rem;
+  }
+
+  .sc-post-link {
+    margin-top: auto;
+    color: var(--sc-cyan);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+  }
+}
+
 .sc-case {
   display: flex;
   flex-direction: column;
@@ -673,7 +743,8 @@ html:has(.sc-page) {
   }
 
   .sc-hero,
-  .sc-project-grid {
+  .sc-project-grid,
+  .sc-posts ul {
     grid-template-columns: 1fr;
   }
 

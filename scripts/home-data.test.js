@@ -1,4 +1,5 @@
 import assert from "node:assert/strict"
+import fs from "node:fs"
 import signalChain, { dellClaim } from "../src/data/signalChain.js"
 
 function walk(value, out = []) {
@@ -36,8 +37,8 @@ assert.doesNotMatch(dellText, /\b(LLM|RAG|agentic|GPT)\b/i)
 assert.match(signalChain.rentpath.scoreLabel, /Lighthouse 41→98/)
 const { rentpath, ...withoutScore } = signalChain
 const rest = walk(withoutScore).join("\n")
-assert.doesNotMatch(rest, /41/)
-assert.doesNotMatch(rest, /98/)
+assert.doesNotMatch(rest, /\b41\b/)
+assert.doesNotMatch(rest, /\b98\b/)
 assert.equal(rentpath.before, "41")
 assert.equal(rentpath.after, "98")
 
@@ -65,5 +66,13 @@ assert.deepEqual(
   signalChain.nav.map((item) => item.id),
   ["ai-systems", "engineering", "projects", "design", "contact"]
 )
+
+assert.ok(signalChain.aiSystems.posts.length >= 1)
+for (const post of signalChain.aiSystems.posts) {
+  assert.match(post.href, /^https:\/\/www\.linkedin\.com\/posts\/michaelgarrettjones_/)
+  assert.match(post.img, /^\/imgs\/linkedin\/[\w-]+\.jpg$/)
+  assert.ok(fs.existsSync(new URL(`../public${post.img}`, import.meta.url)), post.img)
+  assert.ok(post.title && post.excerpt && post.date, post.href)
+}
 
 console.log("home-data: ok")

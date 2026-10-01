@@ -46,6 +46,47 @@ const signalChain = {
       "4everFinder, which helps match shelter dogs with adopters and gets better from feedback.",
       "LLM apps I've shipped on iOS, Apple Watch, and macOS, plus coding harnesses in Cursor and Claude Code with persistent memory, so agents build on what they learned last time.",
     ],
+    posts: [
+      {
+        date: "Sep 3, 2026",
+        title: "The handoff is the bottleneck, not the model.",
+        excerpt:
+          "A shared queue that people and agents can both read. A Task is the job. A Receipt is proof something actually ran.",
+        href: "https://www.linkedin.com/posts/michaelgarrettjones_llm-aiengineering-agents-activity-7501324475397779456-wdBe",
+        img: "/imgs/linkedin/handoff.jpg",
+      },
+      {
+        date: "Aug 19, 2026",
+        title: "Most of the agents I run go to sleep when I do.",
+        excerpt:
+          "Cursor, Claude Code, OpenClaw. Strong in a session. Gone once the laptop lid closes. A prompt is a request. A bot with its own machine is a handoff.",
+        href: "https://www.linkedin.com/posts/michaelgarrettjones_llm-aiengineering-agents-activity-7495650270413074432-Ouum",
+        img: "/imgs/linkedin/agents-sleep.jpg",
+      },
+      {
+        date: "Jul 13, 2026",
+        title: "Claude Code hooks aren't really a flat list of events.",
+        excerpt:
+          "They're intervention points in an agent loop. Start with the question you're trying to answer, then pick the hook that answers it.",
+        href: "https://www.linkedin.com/posts/michaelgarrettjones_claudecode-aiengineering-activity-7482496847035650051-uubl",
+        img: "/imgs/linkedin/hooks-lifecycle.jpg",
+      },
+      {
+        date: "Jul 6, 2026",
+        title: "A rule tells your coding agent what it should do. A hook makes sure it actually happens.",
+        excerpt: "Prompts for judgment. Hooks for guarantees.",
+        href: "https://www.linkedin.com/posts/michaelgarrettjones_agenticcoding-llm-aiengineering-activity-7479898069870829569-1L1w",
+        img: "/imgs/linkedin/rules-and-hooks.jpg",
+      },
+      {
+        date: "Jun 3, 2026",
+        title: "Your coding agent gets much better when it stops relying on chat history alone.",
+        excerpt:
+          "A memory bank on disk. The agent reads the right file at the right phase instead of dragging the whole history into every request.",
+        href: "https://www.linkedin.com/posts/michaelgarrettjones_aiengineering-cursor-llmtools-activity-7468057409597394944-eQzo",
+        img: "/imgs/linkedin/memory-bank.jpg",
+      },
+    ],
   },
   engineering: {
     id: "engineering",
