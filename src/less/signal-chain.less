@@ -185,14 +185,19 @@ html:has(.sc-page) {
   }
 }
 
-.sc-intro {
-  font-size: clamp(0.95rem, 1.05vw, 1.2rem);
+.sc-page .sc-intro {
+  // Floor stays the old mobile size. Cap is 2× the previous 1.2rem ceiling,
+  // and 4.7cqw reaches that cap once the copy column is about 820px wide.
+  font-size: clamp(0.95rem, 4.7cqw, 2.4rem);
+  line-height: 1.25;
+  text-wrap: balance;
 }
 
 .sc-hero-copy {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  container-type: inline-size;
 }
 
 .sc-hero-fx {
