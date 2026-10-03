@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { track } from "../../utils/track"
+import { useXpsConceptAutoScroll } from "../../hooks/xpsConceptAutoScroll"
 
 const narrowQuery = "(max-width: 768px)"
 
@@ -11,6 +12,16 @@ const DellViewer = ({ demos, hint }) => {
   const demo = demos.find((item) => item.id === activeId)
   const src = device === "mobile" && demo.mobile ? demo.mobile : demo.desktop
   const showMobileFrame = device === "mobile" && Boolean(demo.mobile)
+  const sectionRef = useRef(null)
+  const triggerRef = useRef(null)
+  const frameRef = useRef(null)
+
+  useXpsConceptAutoScroll({
+    triggerRef,
+    sectionRef,
+    frameRef,
+    enabled: demo.id === "concept" && Boolean(src),
+  })
 
   useEffect(() => {
     const media = window.matchMedia(narrowQuery)
@@ -25,7 +36,7 @@ const DellViewer = ({ demos, hint }) => {
   }
 
   return (
-    <div className="sc-viewer">
+    <div className="sc-viewer" ref={sectionRef}>
       <div className="sc-viewer-bar">
         <div className="sc-viewer-tabs" role="tablist" aria-label="Dell work">
           {demos.map((item) => (
@@ -34,6 +45,7 @@ const DellViewer = ({ demos, hint }) => {
               type="button"
               role="tab"
               id={`dell-tab-${item.id}`}
+              ref={item.id === "concept" ? triggerRef : undefined}
               aria-selected={item.id === activeId}
               aria-controls="dell-viewer-panel"
               className={item.id === activeId ? "is-active" : undefined}
@@ -69,6 +81,7 @@ const DellViewer = ({ demos, hint }) => {
         {src ? (
           <iframe
             key={src}
+            ref={frameRef}
             src={src}
             title={`${demo.title}, original Dell build`}
             loading="lazy"
