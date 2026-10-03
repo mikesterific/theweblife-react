@@ -109,20 +109,6 @@ const signalChain = {
           "Designed by Dell's design team after the concept, built on the same architecture.",
         desktop: "/dell/franchise/",
       },
-      {
-        id: "home-poc",
-        title: "Home concept",
-        caption:
-          "The home-page proof of concept that shaped the shipped redesign.",
-        desktop: "/dell/home/",
-      },
-      {
-        id: "home",
-        title: "Shipped home",
-        caption: "The home page as it shipped globally, shown as a screenshot.",
-        img: "/imgs/port/home-dell.jpg",
-        alt: "Dell home page desktop shot",
-      },
     ],
   },
   rentpath: {

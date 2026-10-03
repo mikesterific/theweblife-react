@@ -52,10 +52,10 @@ assert.ok(
   rentpath.img,
 );
 
-const home = signalChain.dell.demos.find((demo) => demo.id === "home");
-assert.ok(home);
-assert.equal(home.desktop, undefined);
-assert.equal(home.img, "/imgs/port/home-dell.jpg");
+assert.deepEqual(
+  signalChain.dell.demos.map((demo) => demo.id),
+  ["concept", "xps"],
+);
 for (const demo of signalChain.dell.demos) {
   for (const src of [demo.desktop, demo.mobile].filter(Boolean)) {
     assert.match(
