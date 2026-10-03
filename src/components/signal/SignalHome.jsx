@@ -9,6 +9,18 @@ import KineticBackdrop from "./kinetic/KineticBackdrop"
 import HeroMotionControl from "./kinetic/HeroMotionControl"
 import mug from "../../assets/imgs/mug.png"
 
+function HeroIntro({ intro, name }) {
+  const at = intro.indexOf(name)
+  if (at === -1) return intro
+  return (
+    <>
+      {intro.slice(0, at)}
+      <span className="sc-intro-name">{name}</span>
+      {intro.slice(at + name.length)}
+    </>
+  )
+}
+
 const SignalHome = () => {
   const ids = useMemo(() => signalChain.nav.map((item) => item.id), [])
   const active = useActiveSection(ids)
@@ -53,9 +65,10 @@ const SignalHome = () => {
         />
         <div className="sc-hero-copy">
           {signalChain.hero.status ? <p className="sc-status">{signalChain.hero.status}</p> : null}
-          <p className="sc-intro">{signalChain.hero.intro}</p>
+          <p className="sc-intro">
+            <HeroIntro intro={signalChain.hero.intro} name={signalChain.name} />
+          </p>
           <h1>{signalChain.hero.h1}</h1>
-          <p className="sc-claim">{signalChain.hero.lede}</p>
           <div className="sc-cta">
             <a className="sc-btn sc-btn-primary" href={signalChain.hero.cta.href}>
               {signalChain.hero.cta.label}
