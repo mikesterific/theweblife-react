@@ -56,22 +56,32 @@ export function scrollMax(win) {
   return Math.max(0, doc.scrollHeight - win.innerHeight)
 }
 
-function animateScroll(win, to, { cancelled, onDone }) {
+function animateScroll(win, to, { cancelled, onDone, followGrowth = false }) {
   const from = win.scrollY
-  const distance = to - from
-  if (distance <= 1) {
+  const initialDistance = (followGrowth ? scrollMax(win) : to) - from
+  if (initialDistance <= 1) {
     onDone()
     return 0
   }
-  const start = performance.now()
-  const duration = Math.max(700, distance / PX_PER_MS)
+  let lastTime = performance.now()
+  let stuckMs = 0
   let raf = 0
   const step = (now) => {
     if (cancelled()) return
-    const t = Math.min(1, (now - start) / duration)
-    win.scrollTo(0, from + distance * t)
-    if (t < 1) raf = win.requestAnimationFrame(step)
-    else onDone()
+    const max = followGrowth ? scrollMax(win) : to
+    const next = Math.min(max, win.scrollY + PX_PER_MS * (now - lastTime))
+    lastTime = now
+    win.scrollTo(0, next)
+    if (next >= max - 1) {
+      stuckMs += 16
+      if (stuckMs > 240) {
+        onDone()
+        return
+      }
+    } else {
+      stuckMs = 0
+    }
+    raf = win.requestAnimationFrame(step)
   }
   raf = win.requestAnimationFrame(step)
   return raf
@@ -165,6 +175,7 @@ export function useXpsConceptAutoScroll({ triggerRef, sectionRef, frameRef, enab
           frameRaf = animateScroll(frame.contentWindow, plan.to, {
             cancelled: isCancelled,
             onDone: markDone,
+            followGrowth: true,
           })
         } catch {
           frameRaf = 0
