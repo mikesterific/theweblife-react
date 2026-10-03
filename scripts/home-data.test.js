@@ -56,6 +56,10 @@ assert.deepEqual(
   signalChain.dell.demos.map((demo) => demo.id),
   ["concept", "xps"],
 );
+assert.ok(
+  signalChain.dell.demos.every((demo) => demo.mobile == null),
+  "Dell viewer has no mobile device toggle",
+);
 for (const demo of signalChain.dell.demos) {
   for (const src of [demo.desktop, demo.mobile].filter(Boolean)) {
     assert.match(

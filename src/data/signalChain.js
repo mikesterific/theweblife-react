@@ -100,7 +100,6 @@ const signalChain = {
         caption:
           "The proof of concept that got leadership to fund premium branding.",
         desktop: "/dell/xps/",
-        mobile: "/dell/xpsMobile/",
       },
       {
         id: "xps",

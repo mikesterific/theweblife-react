@@ -137,7 +137,7 @@ const SignalHome = () => {
           <DellViewer demos={signalChain.dell.demos} hint={signalChain.dell.viewerHint} />
         </article>
 
-        <article className="sc-case sc-case--rentpath" id={signalChain.rentpath.id}>
+        <article className="sc-case sc-case--split sc-case--rentpath" id={signalChain.rentpath.id}>
           <div className="sc-case-copy">
             <p className="sc-kicker">{signalChain.rentpath.kicker}</p>
             <h3>{signalChain.rentpath.title}</h3>
@@ -159,10 +159,12 @@ const SignalHome = () => {
           />
         </article>
 
-        <article className="sc-case" id={signalChain.scale.id}>
-          <p className="sc-kicker">{signalChain.scale.kicker}</p>
-          <h3>{signalChain.scale.title}</h3>
-          <p>{signalChain.scale.body}</p>
+        <article className="sc-case sc-case--split" id={signalChain.scale.id}>
+          <div className="sc-case-copy">
+            <p className="sc-kicker">{signalChain.scale.kicker}</p>
+            <h3>{signalChain.scale.title}</h3>
+            <p>{signalChain.scale.body}</p>
+          </div>
           <img
             className="sc-case-shot"
             src={signalChain.scale.img}
