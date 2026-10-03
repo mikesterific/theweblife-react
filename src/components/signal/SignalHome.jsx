@@ -1,14 +1,32 @@
-import { useMemo } from "react"
+import { useMemo, useRef } from "react"
 import { track } from "../../utils/track"
 import { useActiveSection } from "../../hooks/useActiveSection"
+import { useHeroMotion } from "../../hooks/useHeroMotion"
 import signalChain from "../../data/signalChain"
 import ScrollStrip from "./ScrollStrip"
 import DellViewer from "./DellViewer"
-import tigerFull663 from "/imgs/tiger-full-663.jpg"
+import KineticBackdrop from "./kinetic/KineticBackdrop"
+import HeroMotionControl from "./kinetic/HeroMotionControl"
+import mug from "../../assets/imgs/mug.png"
+
+function HeroIntro({ intro, name }) {
+  const at = intro.indexOf(name)
+  if (at === -1) return intro
+  return (
+    <>
+      {intro.slice(0, at)}
+      <span className="sc-intro-name">{name}</span>
+      {intro.slice(at + name.length)}
+    </>
+  )
+}
 
 const SignalHome = () => {
   const ids = useMemo(() => signalChain.nav.map((item) => item.id), [])
   const active = useActiveSection(ids)
+  const heroRef = useRef(null)
+  const portraitRef = useRef(null)
+  const motion = useHeroMotion()
 
   return (
     <div className="sc-page">
@@ -39,14 +57,21 @@ const SignalHome = () => {
         </nav>
       </header>
 
-      <section className="sc-panel sc-hero" id={signalChain.hero.id}>
+      <section className="sc-panel sc-hero" id={signalChain.hero.id} ref={heroRef}>
+        <KineticBackdrop
+          playing={motion.playing}
+          hostRef={heroRef}
+          portraitRef={portraitRef}
+        />
         <div className="sc-hero-copy">
-          <p className="sc-status">{signalChain.hero.status}</p>
+          {signalChain.hero.status ? <p className="sc-status">{signalChain.hero.status}</p> : null}
+          <p className="sc-intro">
+            <HeroIntro intro={signalChain.hero.intro} name={signalChain.name} />
+          </p>
           <h1>{signalChain.hero.h1}</h1>
-          <p className="sc-claim">{signalChain.hero.claim}</p>
           <div className="sc-cta">
-            <a className="sc-btn sc-btn-primary" href="#contact">
-              Get in touch
+            <a className="sc-btn sc-btn-primary" href={signalChain.hero.cta.href}>
+              {signalChain.hero.cta.label}
             </a>
             <a
               className="sc-btn sc-btn-secondary"
@@ -58,11 +83,16 @@ const SignalHome = () => {
           </div>
         </div>
         <img
+          ref={portraitRef}
           className="sc-portrait"
-          src={tigerFull663}
-          alt="Michael Garrett Jones hugging a tiger"
-          width="663"
-          height="800"
+          src={mug}
+          alt="Portrait of Michael Garrett Jones"
+          width="400"
+          height="457"
+        />
+        <HeroMotionControl
+          playing={motion.playing}
+          onToggle={motion.toggle}
         />
       </section>
 
@@ -75,6 +105,24 @@ const SignalHome = () => {
             <li key={point}>{point}</li>
           ))}
         </ul>
+        <div className="sc-posts">
+          <h3>On LinkedIn</h3>
+          <ul>
+            {signalChain.aiSystems.posts.map((post) => (
+              <li key={post.href}>
+                <a href={post.href} target="_blank" rel="noreferrer">
+                  <img className="sc-post-image" src={post.img} alt="" />
+                  <span className="sc-post-copy">
+                    <span className="sc-kicker">{post.date}</span>
+                    <strong>{post.title}</strong>
+                    <span className="sc-post-excerpt">{post.excerpt}</span>
+                    <span className="sc-post-link">Read on LinkedIn</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section className="sc-panel" id={signalChain.engineering.id}>
@@ -89,22 +137,34 @@ const SignalHome = () => {
           <DellViewer demos={signalChain.dell.demos} hint={signalChain.dell.viewerHint} />
         </article>
 
-        <article className="sc-case" id={signalChain.rentpath.id}>
-          <p className="sc-kicker">{signalChain.rentpath.kicker}</p>
-          <h3>{signalChain.rentpath.title}</h3>
-          <p className="sc-score">
-            <span>{signalChain.rentpath.before}</span>
-            <span className="sc-score-arrow" aria-hidden="true">→</span>
-            <span>{signalChain.rentpath.after}</span>
-          </p>
-          <p className="sc-kicker">{signalChain.rentpath.scoreLabel}</p>
-          <p>{signalChain.rentpath.body}</p>
+        <article className="sc-case sc-case--split sc-case--rentpath" id={signalChain.rentpath.id}>
+          <div className="sc-case-copy">
+            <p className="sc-kicker">{signalChain.rentpath.kicker}</p>
+            <h3>{signalChain.rentpath.title}</h3>
+            <p className="sc-score">
+              <span>{signalChain.rentpath.before}</span>
+              <span className="sc-score-arrow" aria-hidden="true">→</span>
+              <span>{signalChain.rentpath.after}</span>
+            </p>
+            <p className="sc-kicker">{signalChain.rentpath.scoreLabel}</p>
+            <p>{signalChain.rentpath.body}</p>
+          </div>
+          <img
+            className="sc-case-shot"
+            src={signalChain.rentpath.img}
+            alt={signalChain.rentpath.alt}
+            width="2398"
+            height="1254"
+            loading="lazy"
+          />
         </article>
 
-        <article className="sc-case" id={signalChain.scale.id}>
-          <p className="sc-kicker">{signalChain.scale.kicker}</p>
-          <h3>{signalChain.scale.title}</h3>
-          <p>{signalChain.scale.body}</p>
+        <article className="sc-case sc-case--split" id={signalChain.scale.id}>
+          <div className="sc-case-copy">
+            <p className="sc-kicker">{signalChain.scale.kicker}</p>
+            <h3>{signalChain.scale.title}</h3>
+            <p>{signalChain.scale.body}</p>
+          </div>
           <img
             className="sc-case-shot"
             src={signalChain.scale.img}

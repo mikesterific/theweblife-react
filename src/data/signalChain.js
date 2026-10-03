@@ -1,7 +1,7 @@
 // Rebuilt from the Sept 9 Signal Chain notes. The Mac branch was never pushed.
 // Evidence rules live in scripts/home-data.test.js.
 
-import portfolioData from "./portfolioData.js"
+import portfolioData from "./portfolioData.js";
 
 const designTitles = [
   "Electronic Arts",
@@ -11,19 +11,20 @@ const designTitles = [
   "Joe Parker Guitars",
   "Decision Tree Logo",
   "BizAtomic Logo",
-]
+];
 
 export const dellClaim =
-  "On the Dell configurator, load time went from 10 seconds to 2 seconds, with a like-for-like 30% conversion lift."
+  "I took Dell's configurator from its slowest page to its fastest, 10 seconds down to 2. Same page, same content, and it converted 30% better.";
 
 const signalChain = {
   name: "Michael Garrett Jones",
   theme: "Signal Chain",
   hero: {
     id: "the-bet",
+    intro:
+      "I'm Michael Garrett Jones: print designer, web designer, elite coder, enterprise architect, and Apress author of Pro HTML5 Performance.",
     h1: "Interface craft. Systems architecture. Applied AI.",
-    status: "Open to work",
-    claim: dellClaim,
+    cta: { label: "See the work", href: "#engineering" },
   },
   nav: [
     { id: "ai-systems", label: "AI systems" },
@@ -35,55 +36,77 @@ const signalChain = {
   aiSystems: {
     id: "ai-systems",
     kicker: "Current craft",
-    title: "Applied AI, on real products.",
-    lede:
-      "The last several years of this work are at Scale Computing and in personal products. Dell is earlier, and it is not an AI story.",
+    title: "AI that does a job, not a demo.",
+    lede: "I don't bolt a chat box onto a product and call it AI. I build the whole loop: what the model can see, what it's allowed to do, and how you know it got it right.",
     points: [
-      "HyperCore, the Scale Computing virtual-machine platform, in Vue and Vuex.",
-      "A Slack app that answers from the company's historical conversations.",
-      "An agentic loop that writes and runs unit tests.",
-      "Personal LLM apps on iOS and macOS, plus coding harnesses in Cursor and Claude.",
+      "A Slack app at Scale Computing that answers questions from years of the company's own conversations.",
+      "An agentic loop that writes unit tests, runs them, and keeps going until they pass.",
+      "4everFinder, which helps match shelter dogs with adopters and gets better from feedback.",
+      "LLM apps I've shipped on iOS, Apple Watch, and macOS, plus coding harnesses in Cursor and Claude Code with persistent memory, so agents build on what they learned last time.",
+    ],
+    posts: [
+      {
+        date: "Aug 19, 2026",
+        title: "Most of the agents I run go to sleep when I do.",
+        excerpt:
+          "Cursor, Claude Code, OpenClaw. Strong in a session. Gone once the laptop lid closes. A prompt is a request. A bot with its own machine is a handoff.",
+        href: "https://www.linkedin.com/posts/michaelgarrettjones_llm-aiengineering-agents-activity-7495650270413074432-Ouum",
+        img: "/imgs/linkedin/agents-sleep.jpg",
+      },
+      {
+        date: "Jul 13, 2026",
+        title: "Claude Code hooks aren't really a flat list of events.",
+        excerpt:
+          "They're intervention points in an agent loop. Start with the question you're trying to answer, then pick the hook that answers it.",
+        href: "https://www.linkedin.com/posts/michaelgarrettjones_claudecode-aiengineering-activity-7482496847035650051-uubl",
+        img: "/imgs/linkedin/hooks-lifecycle.jpg",
+      },
+      {
+        date: "Jul 6, 2026",
+        title:
+          "A rule tells your coding agent what it should do. A hook makes sure it actually happens.",
+        excerpt: "Prompts for judgment. Hooks for guarantees.",
+        href: "https://www.linkedin.com/posts/michaelgarrettjones_agenticcoding-llm-aiengineering-activity-7479898069870829569-1L1w",
+        img: "/imgs/linkedin/rules-and-hooks.jpg",
+      },
+      {
+        date: "Jun 3, 2026",
+        title:
+          "Your coding agent gets much better when it stops relying on chat history alone.",
+        excerpt:
+          "A memory bank on disk. The agent reads the right file at the right phase instead of dragging the whole history into every request.",
+        href: "https://www.linkedin.com/posts/michaelgarrettjones_aiengineering-cursor-llmtools-activity-7468057409597394944-eQzo",
+        img: "/imgs/linkedin/memory-bank.jpg",
+      },
     ],
   },
   engineering: {
     id: "engineering",
     kicker: "Cases",
-    title: "Engineering",
+    title: "The work, with the numbers.",
   },
   dell: {
     id: "dell-path",
     kicker: "Dell",
-    title: "The configurator, then the shopping path.",
+    title: "Dell's slowest page became its fastest.",
     claim: dellClaim,
-    body:
-      "A tiger team from across Dell shipped a greenfield home-page architecture globally in under a month. The same pattern then rolled through home, product, and cart as micro frontends. The proof of concept is what got leadership to fund the premium-branding work.",
-    viewerHint: "These are the original builds, running live. Scroll inside the frame to explore.",
+    body: "The configurator was slow enough that Michael Dell made fixing it a company priority. I led the tiger team and the architecture. We tested it like-for-like, with the same look and content and only the speed changed, so the lift was down to speed alone. Then I rolled the same architecture through home, product, and cart as micro frontends, with the first launch shipping in under a month. The proof of concept I designed along the way pushed Dell's brand from budget toward premium.",
+    viewerHint:
+      "These are the original builds, running live. Scroll inside the frame to explore.",
     demos: [
       {
         id: "concept",
         title: "XPS concept",
-        caption: "The proof of concept that got leadership to fund premium branding.",
+        caption:
+          "The proof of concept that got leadership to fund premium branding.",
         desktop: "/dell/xps/",
-        mobile: "/dell/xpsMobile/",
       },
       {
         id: "xps",
         title: "XPS landing",
-        caption: "Designed by Dell's design team after the concept, built on the same architecture.",
+        caption:
+          "Designed by Dell's design team after the concept, built on the same architecture.",
         desktop: "/dell/franchise/",
-      },
-      {
-        id: "home-poc",
-        title: "Home concept",
-        caption: "The home-page proof of concept that shaped the shipped redesign.",
-        desktop: "/dell/home/",
-      },
-      {
-        id: "home",
-        title: "Shipped home",
-        caption: "The home page as it shipped globally, shown as a screenshot.",
-        img: "/imgs/port/home-dell.jpg",
-        alt: "Dell home page desktop shot",
       },
     ],
   },
@@ -94,34 +117,34 @@ const signalChain = {
     scoreLabel: "Lighthouse 41→98",
     before: "41",
     after: "98",
-    body:
-      "Client-side rendering was taking about 5–6 seconds. Moving the page to Next.js server rendering took that work off the browser.",
+    body: "Rent.com was a client-side React app, which means every visitor's browser got a template and a pile of data and had to build the page itself. That took 5–6 seconds. I moved it to Next.js server rendering so the browser gets finished HTML and only does the work that has to happen there. Search rankings, responsiveness, and engagement all went up.",
+    img: "/imgs/rentpath.jpg",
+    alt: "Rent.com apartment search with listings beside a map",
   },
   scale: {
     id: "scale",
     kicker: "Scale Computing",
-    title: "Platform, retrieval, and a test loop.",
-    body:
-      "I led front-end architecture for HyperCore: a Vue and Vuex virtual-machine UI with live state over sockets. Alongside that, a Slack app retrieves answers from historical conversations, and an agentic loop writes and runs unit tests.",
+    title: "Pulling a live UI out of a C++ monolith.",
+    body: "HyperCore runs virtual machines in places where downtime isn't an option. I led its front-end architecture, pulled the UI and Node.js services out of a C++ monolith, rebuilt it in Vue and Vuex with live VM state over sockets, and built the shared component library the rest of the team works from. I also rebuilt the test pipeline: over 1,500 Cypress tests, with the end-to-end run cut from an hour to 15 minutes. And I mentored two engineers into senior roles.",
     img: "/imgs/port/scale-computing-full.jpg",
     alt: "Scale Computing HyperCore virtual machine dashboard",
   },
   projects: {
     id: "projects",
     kicker: "Side projects",
-    title: "Projects",
+    title: "What I build for fun.",
     items: [
       {
         title: "Twista",
-        body: "A vehicular combat arena in Three.js and Vue. Pick a car, drop into The Catchment, and be the last one running.",
+        body: "Vehicular combat in Three.js and Vue. Pick a car, drop into The Catchment, and be the last one running. Up to four players on a LAN, with push-to-talk radio over WebRTC.",
       },
       {
         title: "Halloweenie",
-        body: "A Halloween arena shooter in Three.js. Every weapon fires candy. Pick a monster and survive the graveyard waves.",
+        body: "A Halloween arena shooter in Three.js where every weapon fires candy. Pick a monster and survive the graveyard.",
       },
       {
         title: "Portfolio Quest",
-        body: "An interactive portfolio: a Phaser space adventure and a first-person museum of the work.",
+        body: "This portfolio, as a game: a Phaser space adventure and a first-person museum of the work.",
         href: "/portfolio-quest/",
         cta: "Launch",
       },
@@ -130,18 +153,17 @@ const signalChain = {
   design: {
     id: "design",
     kicker: "Design archive",
-    title: "Design",
-    lede:
-      "Earlier design work, kept separate from the engineering cases. Premium branding at Dell followed the proof of concept, and a marketing page from that effort received a Webby after I left.",
+    title: "I started as a designer.",
+    lede: "Before I was an architect, I was the one drawing the screens, and it's why I care what the fast version looks like. The last Dell marketing page I worked on won a Webby after I left.",
     items: designTitles.map((title) => {
-      const item = portfolioData.find((entry) => entry.title === title)
+      const item = portfolioData.find((entry) => entry.title === title);
       return {
         title: item.title,
         img: item.img,
         alt: item.alt,
         caption: item.paragraphs,
         roles: item.roles,
-      }
+      };
     }),
   },
   credentials: [
@@ -157,14 +179,22 @@ const signalChain = {
   ],
   contact: {
     id: "contact",
-    title: "Let's work together",
-    body: "I do this work at night and on weekends too. Write if you have a hard problem or a good cause.",
+    title: "Bring me the hard one.",
+    body: "I'm looking for a principal or staff role where judgment matters as much as output. I build at night and on weekends too, so if you have a hard problem or a good cause, write.",
     email: "mike@theweblife.com",
     socials: [
-      { label: "Twitter", href: "https://twitter.com/Mikesterific", icon: "twitter" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/michaelgarrettjones", icon: "linkedin" },
+      {
+        label: "Twitter",
+        href: "https://twitter.com/Mikesterific",
+        icon: "twitter",
+      },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/michaelgarrettjones",
+        icon: "linkedin",
+      },
     ],
   },
-}
+};
 
-export default signalChain
+export default signalChain;
