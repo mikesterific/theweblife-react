@@ -133,6 +133,8 @@ const signalChain = {
     before: "41",
     after: "98",
     body: "Rent.com was a client-side React app, which means every visitor's browser got a template and a pile of data and had to build the page itself. That took 5–6 seconds. I moved it to Next.js server rendering so the browser gets finished HTML and only does the work that has to happen there. Search rankings, responsiveness, and engagement all went up.",
+    img: "/imgs/rentpath.jpg",
+    alt: "Rent.com apartment search with listings beside a map",
   },
   scale: {
     id: "scale",

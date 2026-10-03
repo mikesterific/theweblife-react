@@ -46,6 +46,11 @@ assert.doesNotMatch(rest, /\b41\b/);
 assert.doesNotMatch(rest, /\b98\b/);
 assert.equal(rentpath.before, "41");
 assert.equal(rentpath.after, "98");
+assert.equal(rentpath.img, "/imgs/rentpath.jpg");
+assert.ok(
+  fs.existsSync(new URL(`../public${rentpath.img}`, import.meta.url)),
+  rentpath.img,
+);
 
 const home = signalChain.dell.demos.find((demo) => demo.id === "home");
 assert.ok(home);

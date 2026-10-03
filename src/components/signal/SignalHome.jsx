@@ -137,16 +137,26 @@ const SignalHome = () => {
           <DellViewer demos={signalChain.dell.demos} hint={signalChain.dell.viewerHint} />
         </article>
 
-        <article className="sc-case" id={signalChain.rentpath.id}>
-          <p className="sc-kicker">{signalChain.rentpath.kicker}</p>
-          <h3>{signalChain.rentpath.title}</h3>
-          <p className="sc-score">
-            <span>{signalChain.rentpath.before}</span>
-            <span className="sc-score-arrow" aria-hidden="true">→</span>
-            <span>{signalChain.rentpath.after}</span>
-          </p>
-          <p className="sc-kicker">{signalChain.rentpath.scoreLabel}</p>
-          <p>{signalChain.rentpath.body}</p>
+        <article className="sc-case sc-case--rentpath" id={signalChain.rentpath.id}>
+          <div className="sc-case-copy">
+            <p className="sc-kicker">{signalChain.rentpath.kicker}</p>
+            <h3>{signalChain.rentpath.title}</h3>
+            <p className="sc-score">
+              <span>{signalChain.rentpath.before}</span>
+              <span className="sc-score-arrow" aria-hidden="true">→</span>
+              <span>{signalChain.rentpath.after}</span>
+            </p>
+            <p className="sc-kicker">{signalChain.rentpath.scoreLabel}</p>
+            <p>{signalChain.rentpath.body}</p>
+          </div>
+          <img
+            className="sc-case-shot"
+            src={signalChain.rentpath.img}
+            alt={signalChain.rentpath.alt}
+            width="2398"
+            height="1254"
+            loading="lazy"
+          />
         </article>
 
         <article className="sc-case" id={signalChain.scale.id}>
